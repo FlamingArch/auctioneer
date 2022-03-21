@@ -22,7 +22,7 @@ import {
   Wallet,
 } from "tabler-icons-react";
 
-import { AppContext } from "../Context";
+import { AppContext } from "../../Context";
 
 const useStyles = createStyles((theme) => ({
   link: {

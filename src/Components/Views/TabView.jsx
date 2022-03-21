@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { AppContext } from "../Context";
+import { AppContext } from "../../Context";
 
-import Home from "./Screens/Home";
-import Ongoing from "./Screens/Ongoing";
-import Past from "./Screens/Past";
-import Profile from "./Screens/Profile";
-import Settings from "./Screens/Settings";
-import Wallet from "./Screens/Wallet";
+import Home from "../Screens/Home";
+import Ongoing from "../Screens/Ongoing";
+import Past from "../Screens/Past";
+import Profile from "../Screens/Profile";
+import Settings from "../Screens/Settings";
+import Wallet from "../Screens/Wallet";
 
 const TabView = () => {
   const context = useContext(AppContext);

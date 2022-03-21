@@ -1,8 +1,8 @@
 import { AppShell } from "@mantine/core";
 import { AppProvider } from "../Context";
 
-import NavBar from "./Navigation";
-import TabView from "./TabView";
+import NavBar from "./Views/Navigation";
+import TabView from "./Views/TabView";
 
 const getTheme = (theme) => ({
   main: {
