@@ -1,6 +1,8 @@
-import { MantineProvider, AppShell } from "@mantine/core";
+import { AppShell } from "@mantine/core";
+import { AppProvider } from "../Context";
 
 import NavBar from "./Navigation";
+import TabView from "./TabView";
 
 const getTheme = (theme) => ({
   main: {
@@ -13,9 +15,11 @@ const getTheme = (theme) => ({
 
 function App() {
   return (
-    <MantineProvider>
-      <AppShell padding="md" navbar={<NavBar />} styles={getTheme}></AppShell>
-    </MantineProvider>
+    <AppProvider>
+      <AppShell padding="md" navbar={<NavBar />} styles={getTheme}>
+        <TabView />
+      </AppShell>
+    </AppProvider>
   );
 }
 export default App;

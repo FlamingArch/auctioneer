@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
 import {
   Navbar,
   Center,
@@ -7,19 +8,21 @@ import {
   createStyles,
   Group,
 } from "@mantine/core";
+
 import {
   Icon as TablerIcon,
   Home2,
-  Clock,
   DeviceDesktopAnalytics,
-  Fingerprint,
   CalendarStats,
   User,
   Settings,
   Logout,
   SwitchHorizontal,
   ThreeDCubeSphere,
+  Wallet,
 } from "tabler-icons-react";
+
+import { AppContext } from "../Context";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -77,16 +80,15 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 
 const mockdata = [
   { icon: Home2, label: "Home" },
-  { icon: Clock, label: "Dashboard" },
-  { icon: DeviceDesktopAnalytics, label: "Analytics" },
-  { icon: CalendarStats, label: "Releases" },
+  { icon: DeviceDesktopAnalytics, label: "Ongoing" },
+  { icon: CalendarStats, label: "Past" },
   { icon: User, label: "Account" },
-  { icon: Fingerprint, label: "Security" },
+  { icon: Wallet, label: "Wallet" },
   { icon: Settings, label: "Settings" },
 ];
 
 export default function NavbarMinimal() {
-  const [active, setActive] = useState(2);
+  const { active, setActive } = useContext(AppContext);
 
   const links = mockdata.map((link, index) => (
     <NavbarLink
