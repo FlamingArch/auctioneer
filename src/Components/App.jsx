@@ -1,11 +1,12 @@
 import { AppShell } from "@mantine/core";
 import { AppProvider } from "../Context";
 
-import NavBar from "./Views/Navigation";
+import NavBar from "./Views/NavBar";
 import TabView from "./Views/TabView";
 
 const getTheme = (theme) => ({
   main: {
+    primaryColor: "blue",
     backgroundColor:
       theme.colorScheme === "dark"
         ? theme.colors.dark[8]
@@ -16,7 +17,7 @@ const getTheme = (theme) => ({
 function App() {
   return (
     <AppProvider>
-      <AppShell padding="md" navbar={<NavBar />} styles={getTheme}>
+      <AppShell navbar={<NavBar />} styles={getTheme}>
         <TabView />
       </AppShell>
     </AppProvider>
