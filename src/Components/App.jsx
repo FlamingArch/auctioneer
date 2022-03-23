@@ -17,7 +17,11 @@ const getTheme = (theme) => ({
 function App() {
   return (
     <AppProvider>
-      <AppShell navbar={<NavBar />} styles={getTheme}>
+      <AppShell
+        style={{ height: "100vh", width: "100vw", overflow: "hidden" }}
+        navbar={<NavBar />}
+        styles={getTheme}
+      >
         <TabView />
       </AppShell>
     </AppProvider>

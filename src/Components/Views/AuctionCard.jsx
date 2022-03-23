@@ -34,7 +34,7 @@ export default function AuctionCard({
   ));
 
   return (
-    <div style={{ width: 340 }}>
+    <div style={{ width: "clamp(280px, 100%, 320px)" }}>
       <Card withBorder radius="md" p="md" className={classes.card}>
         <Card.Section>
           <Image src={image} alt={title} height={180} />
