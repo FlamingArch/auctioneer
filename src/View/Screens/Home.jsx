@@ -1,7 +1,6 @@
 import React from "react";
-import Header from "../Views/Header";
-import Banner from "../Views/Banner";
-import Card from "../Views/AuctionCard";
+import Header from "../Supporting/Header";
+import Banner from "../Supporting/Banner";
 
 const Home = () => {
   const props = {

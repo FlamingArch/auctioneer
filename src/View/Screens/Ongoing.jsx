@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Header from "../Views/Header";
-import Card from "../Views/AuctionCard";
+import Header from "../Supporting/Header";
+import Card from "../Supporting/AuctionCard";
 import { Group, ScrollArea } from "@mantine/core";
 import { AppContext } from "../../Context";
 
