@@ -1,7 +1,7 @@
 import React from "react";
-
+import Page from "../Supporting/Page";
 const Settings = () => {
-  return <div className="text-2xl p-1 font-medium text-gray-800">Settings</div>;
+  return <Page header="Settings"></Page>;
 };
 
 export default Settings;

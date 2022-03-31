@@ -1,7 +1,8 @@
 import React from "react";
+import Page from "../Supporting/Page";
 
 const Profile = () => {
-  return <div className="text-2xl p-1 font-medium text-gray-800">Profile</div>;
+  return <Page header="Profile"></Page>;
 };
 
 export default Profile;

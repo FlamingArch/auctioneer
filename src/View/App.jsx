@@ -4,6 +4,13 @@ import { AppProvider } from "../Context";
 import NavBar from "./Supporting/NavBar";
 import TabView from "./Supporting/TabView";
 
+import Home from "../View/Screens/Home";
+import Ongoing from "../View/Screens/Ongoing";
+import Past from "../View/Screens/Past";
+import Profile from "../View/Screens/Profile";
+import Settings from "../View/Screens/Settings";
+import Wallet from "../View/Screens/Wallet";
+
 const getTheme = (theme) => ({
   main: {
     primaryColor: "blue",
@@ -14,15 +21,21 @@ const getTheme = (theme) => ({
   },
 });
 
+const appShellStype = { height: "100vh", width: "100vw", overflow: "hidden" };
+
 function App() {
   return (
     <AppProvider>
-      <AppShell
-        style={{ height: "100vh", width: "100vw", overflow: "hidden" }}
-        navbar={<NavBar />}
-        styles={getTheme}
-      >
-        <TabView />
+      <AppShell style={appShellStype} navbar={<NavBar />} styles={getTheme}>
+        <TabView>
+          <Home />
+          <Ongoing />
+          <Past />
+          <Profile />
+          <Settings />
+          <Wallet />
+          <Home />
+        </TabView>
       </AppShell>
     </AppProvider>
   );

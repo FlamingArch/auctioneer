@@ -1,7 +1,8 @@
 import React from "react";
+import Page from "../Supporting/Page";
 
 const Wallet = () => {
-  return <div className="text-2xl p-1 font-medium text-gray-800">Wallet</div>;
+  return <Page header="Wallet"></Page>;
 };
 
 export default Wallet;

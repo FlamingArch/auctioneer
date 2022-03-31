@@ -1,36 +1,24 @@
 import React, { useContext } from "react";
-import Header from "../Supporting/Header";
+
 import Card from "../Supporting/AuctionCard";
-import { Group, ScrollArea } from "@mantine/core";
+
 import { AppContext } from "../../Context";
+import Page from "../Supporting/Page";
 
 const Ongoing = () => {
   const { sampleBidData: props } = useContext(AppContext);
 
   return (
-    <div className="flex flex-col place-content-center">
-      <Header>Ongoing</Header>
-      <ScrollArea
-        style={{
-          height: "100vh",
-        }}
-      >
-        <Group
-          spacing="lg"
-          grow
-          position="center"
-          style={{ margin: "5rem auto" }}
-        >
-          <Card {...props} />
-          <Card {...props} />
-          <Card {...props} />
-          <Card {...props} />
-          <Card {...props} />
-          <Card {...props} />
-          <Card {...props} />
-        </Group>
-      </ScrollArea>
-    </div>
+    <Page header="Ongoing">
+      <Card {...props} />
+      <Card {...props} />
+      <Card {...props} />
+      <Card {...props} />
+      <Card {...props} />
+      <Card {...props} />
+      <Card {...props} />
+      <Card {...props} />
+    </Page>
   );
 };
 
