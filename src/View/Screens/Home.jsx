@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../Supporting/Header";
 import Banner from "../Supporting/Banner";
 
+import { Group, ScrollArea } from "@mantine/core";
+
 const Home = () => {
   const props = {
     image:
@@ -20,7 +22,21 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       <Header>Home</Header>
-      <Banner />
+
+      <ScrollArea
+        style={{
+          height: "100vh",
+        }}
+      >
+        <Group
+          spacing="lg"
+          grow
+          position="center"
+          style={{ margin: "5rem auto" }}
+        >
+          <Banner />
+        </Group>
+      </ScrollArea>
     </div>
   );
 };
