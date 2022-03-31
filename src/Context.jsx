@@ -15,6 +15,8 @@ import {
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  const [newVisible, setNewVisible] = useState(false);
+
   const [selectedPage, setSelectedPage] = useState(0);
   const [active, setActive] = useState(0);
 
@@ -134,6 +136,8 @@ export const AppProvider = ({ children }) => {
         navBarStyles: navBarStyles,
         auctionCardStyles: auctionCardStyles,
         sampleBidData: sampleBidData,
+        newVisible: newVisible,
+        setNewVisible: setNewVisible,
       }}
     >
       <ColorSchemeProvider>
