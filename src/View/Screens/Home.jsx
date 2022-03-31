@@ -17,6 +17,18 @@ const Home = () => {
   const classesColorButton =
     "ml-4 text-sm rounded-md uppercase font-medium bg-white hover:text-white  hover:bg-blue-500  text-blue-500 transition-all px-4 py-2";
 
+  const bannerActions = [
+    <button key={0} className={classesLightButton} onClick={() => setActive(1)}>
+      BROWSE ONGOING AUCTIONS
+    </button>,
+    <button
+      key={1}
+      className={classesColorButton}
+      onClick={() => setNewVisible(true)}
+    >
+      Start new Auction
+    </button>,
+  ];
   return (
     <div className="flex flex-col">
       <Header>Home</Header>
@@ -33,15 +45,7 @@ const Home = () => {
           style={{ margin: "5rem auto" }}
         >
           <Banner headline="Welcome Back" description={description}>
-            <button className={classesLightButton} onClick={() => setActive(1)}>
-              BROWSE ONGOING AUCTIONS
-            </button>
-            <button
-              className={classesColorButton}
-              onClick={() => setNewVisible(true)}
-            >
-              Start new Auction
-            </button>
+            {bannerActions}
           </Banner>
         </Group>
       </ScrollArea>
