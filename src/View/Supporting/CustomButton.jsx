@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Tooltip } from "@mantine/core";
 
-export default function ThemeButton(props) {
+export default function CustomButton(props) {
   return (
     <Tooltip
       label={props.tooltip}

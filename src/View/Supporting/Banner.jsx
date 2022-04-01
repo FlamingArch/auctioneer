@@ -11,7 +11,7 @@ const Banner = ({ children, headline, description }) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="text-white rounded-xl text-sm border-gray-200 m-4 w-full bg-white shadow-2xl"
+      className="text-white rounded-xl text-sm border-gray-200 m-4 w-full bg-black shadow-2xl"
     >
       <div className="w-full flex flex-col justify-end p-8 border-gray-100 border-t">
         <h1 className="text-3xl font-medium mb-6">{headline}</h1>

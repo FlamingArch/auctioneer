@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { AppContext } from "../../Context";
 
 import Banner from "../Supporting/Banner";
-import Button from "../Supporting/ThemeButton";
+import ThemeButton from "../Supporting/ThemeButton";
+import Page from "../Supporting/Page";
 
 const Home = () => {
   const { setNewVisible } = useContext(AppContext);
@@ -13,12 +14,12 @@ const Home = () => {
   return (
     <Page header="Home">
       <Banner headline="Welcome Back" description={description}>
-        <Button style="white-light" onClick={() => setActive(1)}>
+        <ThemeButton style="white-light" onClick={() => setActive(1)}>
           BROWSE ONGOING AUCTIONS
-        </Button>
-        <Button style="white-filled" onClick={() => setNewVisible(true)}>
+        </ThemeButton>
+        <ThemeButton style="white-filled" onClick={() => setNewVisible(true)}>
           Start new Auction
-        </Button>
+        </ThemeButton>
       </Banner>
     </Page>
   );

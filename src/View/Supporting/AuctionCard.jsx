@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Heart, Section } from "tabler-icons-react";
 import {
   Card,
   Image,
