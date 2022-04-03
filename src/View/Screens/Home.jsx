@@ -6,7 +6,7 @@ import ThemeButton from "../Supporting/ThemeButton";
 import Page from "../Supporting/Page";
 
 const Home = () => {
-  const { setNewVisible } = useContext(AppContext);
+  const { setNewVisible, setActive } = useContext(AppContext);
 
   const description =
     " Create a new auction and sell your items at hightest price, or look around our ongoing auctions to see something you may like.";

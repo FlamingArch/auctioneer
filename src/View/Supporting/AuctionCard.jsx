@@ -10,22 +10,15 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { AppContext } from "../../Context";
+import User from "../../Model/User";
 
-export default function AuctionCard({
-  image,
-  title,
-  current_price,
-  description,
-  category,
-  tags,
-  author,
-}) {
+export default function AuctionCard({ item }) {
   const { auctionCardStyles } = useContext(AppContext);
   const { classes } = auctionCardStyles();
 
   const theme = useMantineTheme();
 
-  const features = tags.map((badge) => (
+  const features = item.tags.map((badge) => (
     <Badge color={theme.colorScheme === "dark" ? "dark" : "gray"} key={badge}>
       {badge}
     </Badge>
@@ -35,24 +28,24 @@ export default function AuctionCard({
     <div style={{ width: "clamp(280px, 100%, 320px)" }}>
       <Card withBorder radius="md" p="md" className={classes.card}>
         <Card.Section>
-          <Image src={image} alt={title} height={180} />
+          <Image src={item.image_urls[0]} alt={name} height={180} />
         </Card.Section>
 
         <Card.Section className={classes.section} mt="md">
           <Group position="apart">
             <Text size="lg" weight={500}>
-              {title}
+              {item.name}
             </Text>
             <Text color="red" size="lg" weight={500}>
-              $ {current_price}
+              $ {item.initial_price}
             </Text>
           </Group>
           <Group position="apart">
             <Text size="sm" mt="xs">
-              {description}
+              {item.description}
             </Text>
-            <Badge size="sm" leftSection={category.emoji}>
-              {category.label}
+            <Badge size="sm" leftSection={item.category.emoji}>
+              {item.category.label}
             </Badge>
           </Group>
         </Card.Section>
@@ -62,12 +55,15 @@ export default function AuctionCard({
             Author
           </Text>
           <Group mt={5}>
-            <Avatar src={author.image} size="md" />
+            <Avatar
+              src={User.getUser(item.author).profile_picture_url}
+              size="md"
+            />
             <Group direction="column" grow>
               <Text size="md" color="gray" weight={500}>
-                {author.name}
+                {User.getUser(item.author).name}
                 <Text size="sm" color="gray">
-                  {author.description}
+                  {User.getUser(item.author).bio}
                 </Text>
               </Text>
             </Group>

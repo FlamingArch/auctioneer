@@ -1,5 +1,5 @@
 export default class Bid {
-  this.time: Date;
+  time: Date;
   constructor(public bid: number, public user: number) {
     this.time = new Date();
   }

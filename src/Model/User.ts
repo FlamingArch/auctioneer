@@ -32,4 +32,14 @@ export default class User {
   addBuyItem(item_id: string) {
     this.bought.push(item_id);
   }
+
+  static getUser(id: string) {
+    let user = new User(
+      "Jane Doe",
+      "Just here to sell some stupid stuff I own.",
+      "https://unsplash.com/photos/HA5rQ_XfBD0/download?ixid=MnwxMjA3fDF8MXxhbGx8MTF8fHx8fHwyfHwxNjQ3ODkyODQ0&force=true&w=1920"
+    );
+    user.addBalance(69420);
+    return user;
+  }
 }
