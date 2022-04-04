@@ -52,7 +52,7 @@ export default function AuctionCard({ item }) {
 
         <Card.Section className={classes.section}>
           <Text mt="md" className={classes.label} color="dimmed">
-            Author
+            Seller
           </Text>
           <Group mt={5}>
             <Avatar

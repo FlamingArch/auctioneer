@@ -12,9 +12,25 @@ import {
   Wallet,
 } from "tabler-icons-react";
 
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  const firebaseConfig = {
+    apiKey: "AIzaSyCQzMX4YlH5UpyHU9faojWK-U8vtasBWWE",
+    authDomain: "f303-auctioneer.firebaseapp.com",
+    projectId: "f303-auctioneer",
+    storageBucket: "f303-auctioneer.appspot.com",
+    messagingSenderId: "899394762304",
+    appId: "1:899394762304:web:c3511387b09f65941f11a5",
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  const db = getFirestore(app);
+
   const [newVisible, setNewVisible] = useState(false);
 
   const [selectedPage, setSelectedPage] = useState(0);
@@ -128,6 +144,8 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        app: app,
+        db: db,
         selectedPage: selectedPage,
         setSelectedPage: setSelectedPage,
         active: active,

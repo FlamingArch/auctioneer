@@ -4,8 +4,11 @@ import Card from "../Supporting/AuctionCard";
 
 import { AppContext } from "../../Context";
 import Page from "../Supporting/Page";
+import { collection, getDocs } from "firebase/firestore";
 
 const Ongoing = () => {
+  const { db } = useContext(AppContext);
+
   const item = {
     active: true,
     bids: [
@@ -40,14 +43,13 @@ const Ongoing = () => {
     user: 129021,
   };
 
+  // const querySnapshot = await getDocs(collection(db, "items"));'
+
   return (
     <Page header="Ongoing">
-      <Card item={item} />
-      <Card item={item} />
-      <Card item={item} />
-      <Card item={item} />
-      <Card item={item} />
-      <Card item={item} />
+      {/* {querySnapshot.docs.map((doc) => (
+        <Card key={doc.id} item={{ id: doc.id, ...doc.data() }} />
+      ))} */}
       <Card item={item} />
     </Page>
   );
