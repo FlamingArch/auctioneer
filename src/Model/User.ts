@@ -9,12 +9,16 @@ export default class User {
   constructor(
     public name: string,
     public bio: string,
-    public profile_picture_url: string
+    public profile_picture_url: string,
+    id?: string,
+    sold?: string[],
+    bought?: string[],
+    balance?: number
   ) {
-    this.id = uuid();
-    this.sold = [];
-    this.bought = [];
-    this.balance = 0;
+    this.id = id ?? uuid();
+    this.sold = sold ?? [];
+    this.bought = bought ?? [];
+    this.balance = balance ?? 0;
   }
 
   addBalance(amount: number) {
