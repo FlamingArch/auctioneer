@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../Context";
+import { useContext } from "react";
+import { UIContext } from "../../UIContext";
 
 const TabView = ({ children }) => {
-  const context = useContext(AppContext);
+  const { active } = useContext(UIContext);
 
-  return children[context.active];
+  return children[active];
 };
 
 export default TabView;

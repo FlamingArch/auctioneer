@@ -1,5 +1,7 @@
 import { AppShell } from "@mantine/core";
-import { AppProvider } from "../Context";
+import { AppProvider } from "../AppContext";
+
+import { UIProvider } from "../UIContext";
 
 import NavBar from "./Supporting/NavBar";
 import TabView from "./Supporting/TabView";
@@ -26,17 +28,19 @@ const appShellStype = { height: "100vh", width: "100vw", overflow: "hidden" };
 function App() {
   return (
     <AppProvider>
-      <AppShell style={appShellStype} navbar={<NavBar />} styles={getTheme}>
-        <TabView>
-          <Home />
-          <Ongoing />
-          <Past />
-          <Profile />
-          <Settings />
-          <Wallet />
-          <Home />
-        </TabView>
-      </AppShell>
+      <UIProvider>
+        <AppShell style={appShellStype} navbar={<NavBar />} styles={getTheme}>
+          <TabView>
+            <Home />
+            <Ongoing />
+            <Past />
+            <Profile />
+            <Settings />
+            <Wallet />
+            <Home />
+          </TabView>
+        </AppShell>
+      </UIProvider>
     </AppProvider>
   );
 }

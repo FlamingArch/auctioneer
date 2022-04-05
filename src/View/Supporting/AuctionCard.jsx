@@ -9,12 +9,14 @@ import {
   Avatar,
   useMantineTheme,
 } from "@mantine/core";
-import { AppContext } from "../../Context";
+
 import User from "../../Model/User";
 
+import { UIContext } from "../../UIContext";
+
 export default function AuctionCard({ item }) {
-  const { auctionCardStyles } = useContext(AppContext);
-  const { classes } = auctionCardStyles();
+  const { styles } = useContext(UIContext);
+  const { classes } = styles.auctionCardStyles();
 
   const theme = useMantineTheme();
 

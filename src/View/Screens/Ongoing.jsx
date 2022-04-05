@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import Card from "../Supporting/AuctionCard";
 
-import { AppContext } from "../../Context";
+import { AppContext } from "../../AppContext";
 import Page from "../Supporting/Page";
 import { collection, getDocs } from "firebase/firestore";
 

@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { Navbar, Center, Group, Tooltip, UnstyledButton } from "@mantine/core";
 import { Logout, SwitchHorizontal, ThreeDCubeSphere } from "tabler-icons-react";
 import ToggleTheme from "./ToggleTheme";
-import { AppContext } from "../../Context";
+import { AppContext } from "../../AppContext";
+import { UIContext } from "../../UIContext";
 
 function NavbarLink({ icon: Icon, label, active, onClick }) {
   const context = useContext(AppContext);
-  const { classes, cx } = context.navBarStyles();
+  const { classes, cx } = useContext(UIContext).styles.navBarStyles();
   return (
     <Tooltip label={label} position="right" withArrow transitionDuration={0}>
       <UnstyledButton
@@ -20,14 +21,15 @@ function NavbarLink({ icon: Icon, label, active, onClick }) {
 }
 
 export default function NavbarMinimal() {
-  const context = useContext(AppContext);
+  const { navlinks } = useContext(AppContext);
+  const { active, setActive } = useContext(UIContext);
 
-  const links = context.navlinks.map((link, index) => (
+  const links = navlinks.map((link, index) => (
     <NavbarLink
       {...link}
       key={link.label}
-      active={index === context.active}
-      onClick={() => context.setActive(index)}
+      active={index === active}
+      onClick={() => setActive(index)}
     />
   ));
 

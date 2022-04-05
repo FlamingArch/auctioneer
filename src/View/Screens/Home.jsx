@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../Context";
 
 import Banner from "../Supporting/Banner";
 import ThemeButton from "../Supporting/ThemeButton";
 import Page from "../Supporting/Page";
+
+import { AppContext } from "../../AppContext";
 
 const Home = () => {
   const { setNewVisible, setActive } = useContext(AppContext);

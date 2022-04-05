@@ -1,6 +1,4 @@
-import React, { useContext } from "react";
-import { Button } from "@mantine/core";
-import { AppContext } from "../../Context";
+import React from "react";
 
 const Banner = ({ children, headline, description }) => {
   return (
