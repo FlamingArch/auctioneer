@@ -1,10 +1,8 @@
 import { AppShell } from "@mantine/core";
 import { AppProvider } from "../AppContext";
 
-import { UIProvider } from "../UIContext";
-
 import NavBar from "./Supporting/NavBar";
-import TabView from "./Supporting/TabView";
+import { TabView, TabProvider } from "./Supporting/TabView";
 
 import Home from "../View/Screens/Home";
 import Ongoing from "../View/Screens/Ongoing";
@@ -12,24 +10,17 @@ import Past from "../View/Screens/Past";
 import Profile from "../View/Screens/Profile";
 import Settings from "../View/Screens/Settings";
 import Wallet from "../View/Screens/Wallet";
-
-const getTheme = (theme) => ({
-  main: {
-    primaryColor: "blue",
-    backgroundColor:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[8]
-        : theme.colors.gray[0],
-  },
-});
-
-const appShellStype = { height: "100vh", width: "100vw", overflow: "hidden" };
+import Styles from "./Supporting/Styles";
 
 function App() {
   return (
     <AppProvider>
-      <UIProvider>
-        <AppShell style={appShellStype} navbar={<NavBar />} styles={getTheme}>
+      <TabProvider>
+        <AppShell
+          style={Styles.appShellStyle}
+          navbar={<NavBar />}
+          styles={Styles.getTheme}
+        >
           <TabView>
             <Home />
             <Ongoing />
@@ -40,7 +31,7 @@ function App() {
             <Home />
           </TabView>
         </AppShell>
-      </UIProvider>
+      </TabProvider>
     </AppProvider>
   );
 }

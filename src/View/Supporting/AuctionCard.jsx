@@ -11,13 +11,10 @@ import {
 } from "@mantine/core";
 
 import User from "../../Model/User";
-
-import { UIContext } from "../../UIContext";
+import Styles from "./Styles";
 
 export default function AuctionCard({ item }) {
-  const { styles } = useContext(UIContext);
-  const { classes } = styles.auctionCardStyles();
-
+  const { classes } = Styles.auctionCardStyles();
   const theme = useMantineTheme();
 
   const features = item.tags.map((badge) => (

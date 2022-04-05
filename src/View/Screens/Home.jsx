@@ -3,11 +3,13 @@ import React, { useContext } from "react";
 import Banner from "../Supporting/Banner";
 import ThemeButton from "../Supporting/ThemeButton";
 import Page from "../Supporting/Page";
+import { TabContext } from "../Supporting/TabView";
 
 import { AppContext } from "../../AppContext";
 
 const Home = () => {
-  const { setNewVisible, setActive } = useContext(AppContext);
+  const { setNewVisible } = useContext(AppContext);
+  const { setActive } = useContext(TabContext);
 
   const description =
     " Create a new auction and sell your items at hightest price, or look around our ongoing auctions to see something you may like.";
