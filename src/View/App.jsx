@@ -10,6 +10,7 @@ import Past from "../View/Screens/Past";
 import Profile from "../View/Screens/Profile";
 import Settings from "../View/Screens/Settings";
 import Wallet from "../View/Screens/Wallet";
+import SignIn from "./Screens/SignIn";
 import Styles from "./Supporting/Styles";
 
 import { initializeApp } from "firebase/app";
@@ -64,21 +65,7 @@ function App() {
           </AppShell>
         </TabProvider>
       ) : (
-        <div className="w-screen h-screen grid place-content-center bg-blue-100 bg-opacity-25">
-          <h1 className="m-6 text-3xl font-light">Sign in to Auctioneer</h1>
-          <button
-            onClick={signInGoogle}
-            className="m-2 transition-all bg-blue-100 text-black hover:bg-blue-200 hover:text-black px-16 py-2 rounded-3xl shadow-none hover:shadow-none hover:rounded-md"
-          >
-            Sign in with Google
-          </button>
-          <button className="m-2 transition-all bg-blue-100 text-black hover:bg-blue-200 hover:text-black px-16 py-2 rounded-3xl shadow-none hover:shadow-none hover:rounded-md">
-            Sign in with Email
-          </button>
-          <button className="m-2 transition-all bg-blue-100 text-black hover:bg-blue-200 hover:text-black px-16 py-2 rounded-3xl shadow-none hover:shadow-none hover:rounded-md">
-            Sign in with Phone
-          </button>
-        </div>
+        <SignIn signInGoogle={signInGoogle} />
       )}
     </AppProvider>
   );

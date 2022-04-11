@@ -11,6 +11,7 @@ import {
   Logout,
   SwitchHorizontal,
   ThreeDCubeSphere,
+  MoonStars,
 } from "tabler-icons-react";
 
 import ToggleTheme from "./ToggleTheme";
@@ -47,8 +48,7 @@ export default function NavbarMinimal({ signout }) {
       </Navbar.Section>
       <Navbar.Section>
         <Group direction="column" align="center" spacing={0}>
-          <ToggleTheme />
-          <TabBarLink icon={SwitchHorizontal} label="Change account" />
+          <TabBarLink icon={MoonStars} label="Change Theme" />
           <TabBarLink icon={Logout} onClick={signout} label="Sign Out" />
         </Group>
       </Navbar.Section>
