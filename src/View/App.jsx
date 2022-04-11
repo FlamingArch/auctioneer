@@ -49,7 +49,7 @@ function App() {
         <TabProvider>
           <AppShell
             style={Styles.appShellStyle}
-            navbar={<NavBar />}
+            navbar={<NavBar signout={signOut} />}
             styles={Styles.getTheme}
           >
             <TabView>

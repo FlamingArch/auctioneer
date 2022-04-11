@@ -15,7 +15,7 @@ const Banner = ({ children, headline, description }) => {
         <h1 className="text-3xl font-medium mb-6">{headline}</h1>
         {description}
       </div>
-      <div className="w-full flex justify-end p-8 border-gray-100 pt-0">
+      <div className="w-full flex md:flex-row flex-col justify-end p-8 border-gray-100 pt-0">
         {children}
       </div>
     </div>

@@ -1,12 +1,5 @@
 import React, { useContext } from "react";
-import {
-  Navbar,
-  Center,
-  Group,
-  Tooltip,
-  UnstyledButton,
-  createStyles,
-} from "@mantine/core";
+import { Navbar, Center, Group } from "@mantine/core";
 
 import {
   Home2,
@@ -32,7 +25,7 @@ const navlinks = [
   { icon: Settings, label: "Settings" },
 ];
 
-export default function NavbarMinimal() {
+export default function NavbarMinimal({ signout }) {
   const { active, setActive } = useContext(TabContext);
 
   const links = navlinks.map((link, index) => (
@@ -56,7 +49,7 @@ export default function NavbarMinimal() {
         <Group direction="column" align="center" spacing={0}>
           <ToggleTheme />
           <TabBarLink icon={SwitchHorizontal} label="Change account" />
-          <TabBarLink icon={Logout} label="Logout" />
+          <TabBarLink icon={Logout} onClick={signout} label="Sign Out" />
         </Group>
       </Navbar.Section>
     </Navbar>

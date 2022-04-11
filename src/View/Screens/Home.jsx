@@ -7,7 +7,7 @@ import { TabContext } from "../Supporting/TabView";
 
 import { AppContext } from "../../AppContext";
 
-const Home = () => {
+const Home = ({ signOut }) => {
   const { setNewVisible } = useContext(AppContext);
   const { setActive } = useContext(TabContext);
 
