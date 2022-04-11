@@ -106,6 +106,8 @@ const Styles = {
         "https://unsplash.com/photos/HA5rQ_XfBD0/download?ixid=MnwxMjA3fDF8MXxhbGx8MTF8fHx8fHwyfHwxNjQ3ODkyODQ0&force=true&w=1920",
     },
   },
+  materialYouButton:
+    "m-2 flex place-items-center transition-all bg-blue-100 text-black hover:bg-blue-200 hover:text-black px-16 py-2 rounded-3xl shadow-none hover:shadow-none hover:rounded-md",
 };
 
 export default Styles;
