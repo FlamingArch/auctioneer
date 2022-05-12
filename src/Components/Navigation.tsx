@@ -10,15 +10,14 @@ import {
 import {
   Icon as TablerIcon,
   Home2,
-  Gauge,
   DeviceDesktopAnalytics,
-  Fingerprint,
   CalendarStats,
   User,
   Settings,
   Logout,
-  SwitchHorizontal,
   ThreeDCubeSphere,
+  Wallet,
+  Moon,
 } from "tabler-icons-react";
 
 const useStyles = createStyles((theme) => ({
@@ -77,11 +76,10 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 
 const mockdata = [
   { icon: Home2, label: "Home" },
-  { icon: Gauge, label: "Dashboard" },
-  { icon: DeviceDesktopAnalytics, label: "Analytics" },
-  { icon: CalendarStats, label: "Releases" },
+  { icon: DeviceDesktopAnalytics, label: "Ongoing" },
+  { icon: CalendarStats, label: "Past" },
+  { icon: Wallet, label: "Wallet" },
   { icon: User, label: "Account" },
-  { icon: Fingerprint, label: "Security" },
   { icon: Settings, label: "Settings" },
 ];
 
@@ -109,7 +107,7 @@ function NavigationBar() {
       </Navbar.Section>
       <Navbar.Section>
         <Group direction="column" align="center" spacing={0}>
-          <NavbarLink icon={SwitchHorizontal} label="Change account" />
+          <NavbarLink icon={Moon} label="Toggle Theme" />
           <NavbarLink icon={Logout} label="Logout" />
         </Group>
       </Navbar.Section>
