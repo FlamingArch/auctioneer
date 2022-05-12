@@ -1,52 +1,36 @@
-import { v4 as uuid } from "uuid";
-
-import Category from "./Category";
-import Bid from "./Bid";
-
 export default class Item {
-  id: string;
-  image_urls: string[];
-  name: string;
-  description: string;
-  cateory: Category;
-  bids: Bid[];
-  user: number;
   active: boolean;
+  bids: {
+    bid: number;
+    time: string;
+    user: string;
+  }[];
+  bookmark: boolean;
+  category: { emoji: string; label: string };
+  description: string;
+  image_urls: string[];
+  initial_price: number;
+  name: string;
   tags: string[];
+  user: string;
 
-  constructor(
-    image_urls: string[],
-    name: string,
-    description: string,
-    category: Category,
-    initialPrice: number,
-    user_id: number,
-    tags: string[]
-  ) {
-    this.id = uuid();
-    this.image_urls = image_urls;
-    this.name = name;
-    this.description = description;
-    this.cateory = category;
-    this.bids = new Array<Bid>();
-    this.addBid(new Bid(initialPrice, user_id));
-    this.user = user_id;
-    this.tags = tags;
+  constructor(data: any) {
+    this.active = data.active ?? true;
+    this.bids = data.bids ?? [];
+    this.bookmark = data.bookmarks ?? false;
+    this.category = data.category;
+    this.description = data.description;
+    this.image_urls = data.image_urls;
+    this.initial_price = data.initial_price;
+    this.name = data.name;
+    this.tags = data.tags;
+    this.user = data.user;
   }
 
-  addBid(bid: Bid) {
-    if (this.bids[0].compare(bid)) {
-      throw new Error("Current bid lower than last bid.");
-    } else {
-      this.bids.unshift(bid);
-    }
-  }
+  markSold = () => (this.active = false);
 
-  sell() {
-    this.active = false;
-  }
+  addBid = (bid: number, user: string, time: string) =>
+    this.bids.unshift({ bid, user, time });
 
-  getLatestBid() {
-    return this.bids[0];
-  }
+  toggleBookmark = () => (this.bookmark = !this.bookmark);
 }
