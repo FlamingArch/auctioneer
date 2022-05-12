@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
     ":hover": {
       boxShadow: "0px 12px 60px rgba(0, 0, 0, 0.24)",
       // translate: "0px -5px",
-      scale: "1.025"
+      scale: "1.025",
     },
   },
 
@@ -37,12 +37,11 @@ const useStyles = createStyles((theme) => ({
   },
 
   like: {
-    color: theme.colors.red[6],
+    color: theme.colors.white,
   },
 
   like_active: {
-    color: theme.colors.white,
-    background: theme.colors.red[6],
+    color: theme.colors.pink[6],
   },
 
   label: {
@@ -96,7 +95,7 @@ export function ItemCard({ item }: ItemCardProps) {
       </Card.Section>
 
       <Group mt="xs">
-        <Button radius="md" style={{ flex: 1 }} disabled={item.active}>
+        <Button radius="md" style={{ flex: 1 }} disabled={!item.active}>
           {item.active ? "Bid" : "Sold"}
         </Button>
         <ActionIcon
@@ -104,9 +103,11 @@ export function ItemCard({ item }: ItemCardProps) {
           radius="md"
           size={36}
           onClick={item.toggleBookmark}
-          className={item.bookmark ? classes.like_active : classes.like}
         >
-          <Heart size={18} />
+          <Heart
+            size={18}
+            className={item.bookmark ? classes.like_active : classes.like}
+          />
         </ActionIcon>
       </Group>
     </Card>

@@ -1,5 +1,5 @@
 export default {
-  active: false,
+  active: true,
   bids: [
     {
       bid: 13.29,
@@ -17,6 +17,7 @@ export default {
       user: "CaJnUWDaufWvtDWNAm3t",
     },
   ],
+  bookmark: true,
   category: {
     emoji: "💻",
     label: "Technology",
@@ -30,7 +31,6 @@ export default {
   ],
   initial_price: 12.99,
   name: "Surface Pro 8",
-
   tags: [
     "microsoft",
     "surface",
