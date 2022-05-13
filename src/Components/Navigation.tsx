@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext, useContext } from "react";
 import {
   Navbar,
   Center,
@@ -13,7 +13,6 @@ import {
   DeviceDesktopAnalytics,
   CalendarStats,
   User,
-  Settings,
   Logout,
   ThreeDCubeSphere,
   Wallet,
@@ -80,7 +79,6 @@ const mockdata = [
   { icon: CalendarStats, label: "Past" },
   { icon: Wallet, label: "Wallet" },
   { icon: User, label: "Account" },
-  { icon: Settings, label: "Settings" },
 ];
 
 function NavigationBar() {
@@ -96,16 +94,21 @@ function NavigationBar() {
   ));
 
   return (
-    <Navbar width={{ base: 80 }} p="md" pt="xl">
-      <Center pt="sm">
+    <Navbar width={{ base: 80 }} p="md" pt="xl" className="appbar_styles">
+      <Center pt="sm" className="hide_mobile">
         <ThreeDCubeSphere className="w-8 h-8 text-red-500" />
       </Center>
       <Navbar.Section grow mt={50}>
-        <Group direction="column" align="center" spacing={0}>
+        <Group
+          className="invertdirec-mobile"
+          direction="column"
+          align="center"
+          spacing={0}
+        >
           {links}
         </Group>
       </Navbar.Section>
-      <Navbar.Section>
+      <Navbar.Section className="hide_mobile">
         <Group direction="column" align="center" spacing={0}>
           <NavbarLink icon={Moon} label="Toggle Theme" />
           <NavbarLink icon={Logout} label="Logout" />
