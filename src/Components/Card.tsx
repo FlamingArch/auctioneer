@@ -66,7 +66,7 @@ export function ItemCard({ item }: ItemCardProps) {
   ));
 
   return (
-    <Card withBorder radius="md" p="md" className={classes.card}>
+    <Card withBorder radius="md" p="md" className={classes.card + " card"}>
       <Card.Section>
         <Image src={item.image_urls[0]} alt={item.name} height={180} />
       </Card.Section>

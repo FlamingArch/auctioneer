@@ -22,6 +22,7 @@
 
 .appgrid {
   grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
   height: 100vh;
   overflow: hidden;
   @media screen and (max-width: 640px) {
@@ -48,4 +49,8 @@
   @media screen and (max-width: 640px) {
     display: none;
   }
+}
+
+.card {
+  height: fit-content;
 }

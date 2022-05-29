@@ -12,6 +12,14 @@ function App() {
         <ItemCard item={sampleitem} />
         <ItemCard item={sampleitem} />
         <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
+        <ItemCard item={sampleitem} />
       </PageGrid>
     </div>
   );
