@@ -142,3 +142,49 @@ code {
     fill: $object-color !important;
   }
 }
+
+.content {
+  @apply p-10 flex flex-col gap-6 w-full h-full;
+}
+
+h1 {
+  font-family: $heading-font;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  @apply grid place-content-center;
+}
+
+.input {
+  @apply flex rounded-lg p-3 hover:shadow-lg focus-within:shadow-md transition-all gap-2;
+
+  background: $object-color;
+  color: rgba($color: $foreground-color, $alpha: 0.4);
+  width: clamp(128px, 40vw, 384px);
+
+  & input {
+    @apply outline-none;
+  }
+
+  &:focus-within {
+    & path {
+      fill: $foreground-color !important;
+    }
+    color: $foreground-color;
+  }
+
+  & path {
+    fill: rgba($color: $foreground-color, $alpha: 0.4) !important;
+  }
+}
