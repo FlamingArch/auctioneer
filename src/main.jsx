@@ -3,8 +3,12 @@ import ReactDOM from "react-dom/client";
 import App from "./Components/App";
 import "./index.scss";
 
+import { FirebaseProvider } from "./Components/Firebase";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <FirebaseProvider>
+      <App />
+    </FirebaseProvider>
   </React.StrictMode>
 );

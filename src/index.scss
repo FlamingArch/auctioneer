@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Manrope:200,300,regular,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Dela+Gothic+One:regular);
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $theme-color: #f2f3f5;
 $object-color: #ffffff;
 $foreground-color: #000;
