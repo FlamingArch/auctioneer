@@ -1,56 +1,140 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url(https://fonts.googleapis.com/css?family=Manrope:200,300,regular,500,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Dela+Gothic+One:regular);
 
-.grid-items {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 2rem;
-  padding-top: 100px;
+$theme-color: #f2f3f5;
+$object-color: #ffffff;
+$foreground-color: #000;
+$accent-color: #0066ff;
+$accent-color-foreground: #fff;
+$heading-font: "Dela Gothic One", "Manrope", sans-serif;
+$body-font: "Manrope", sans-serif;
 
-  @media screen and (max-width: 1300px) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  @media screen and (max-width: 966px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media screen and (max-width: 640px) {
-    grid-template-columns: 1fr;
-  }
+* {
+  font-family: $body-font;
+  font-weight: 500;
+  color: $foreground-color;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.appgrid {
-  grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.window {
+  display: flex;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
-  @media screen and (max-width: 640px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+  background: $theme-color;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  padding: 2rem;
+  gap: 2rem;
+  height: 100vh;
+}
+
+.logo {
+  font-family: $heading-font;
+  font-size: 2.5rem;
+}
+
+.expanded {
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: $object-color;
+  box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.24);
+  font-weight: bold;
+  transition: all 140ms ease;
+
+  &.left_align {
+    justify-content: flex-start;
+  }
+
+  &.transparent {
+    background: transparent;
+    box-shadow: none;
+    filter: none;
+
+    &:hover {
+      background: $object-color;
+      box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.24);
+      filter: none;
+    }
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+
+  &.primary {
+    background: $accent-color;
+    box-shadow: 0px 12px 40px rgba($color: $accent-color, $alpha: 0.4);
+    color: $accent-color-foreground;
+  }
+
+  &.icon {
+    background: transparent;
+    box-shadow: none;
+    aspect-ratio: 1/1;
+    filter: none;
+
+    &.expanded {
+      aspect-ratio: none;
+    }
+
+    &:hover {
+      background: $object-color;
+      box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.24);
+      filter: none;
+    }
   }
 }
 
-.appbar_styles {
-  background-color: transparent;
-  @media screen and (max-width: 640px) {
-    width: 100vw;
-    height: 64px;
-  }
-  .invertdirec-mobile {
-    flex-direction: row;
-    width: auto;
-    place-content: center;
-  }
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
-.hide_mobile {
-  display: block;
-  @media screen and (max-width: 640px) {
-    display: none;
-  }
-}
+.navigation-link {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 140ms ease;
 
-.card {
-  height: fit-content;
+  &.selected {
+    background: $foreground-color;
+    color: $object-color;
+    fill: $object-color !important;
+  }
+
+  &.selected path {
+    fill: $object-color !important;
+  }
 }
