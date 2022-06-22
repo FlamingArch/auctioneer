@@ -8,12 +8,13 @@ const OngoingPage = () => {
   return (
     <div className="content">
       <TopBar />
-      {items.map((item) => (
-        <div className="card">
-          <h3>{item.name}</h3>
-          {item.description}
-        </div>
-      ))}
+      {items &&
+        items.map((item, idx) => (
+          <div className="card" key={idx}>
+            <h3>{item.name}</h3>
+            {item.description}
+          </div>
+        ))}
     </div>
   );
 };

@@ -153,6 +153,10 @@ code {
   font-weight: bold;
   transition: all 140ms ease;
 
+  &.hover {
+    opacity: 0.6;
+  }
+
   &.selected {
     background: $foreground-color;
     color: $object-color;
@@ -165,7 +169,7 @@ code {
 }
 
 .content {
-  @apply p-10 flex flex-col gap-6 w-full h-full;
+  @apply p-10 flex flex-col gap-6 w-full h-full items-stretch;
 }
 
 h1 {
@@ -200,7 +204,6 @@ h3 {
   background: $object-color;
   color: rgba($color: $foreground-color, $alpha: 0.4);
   width: clamp(128px, 60vw, 384px);
-
   & input {
     @apply outline-none bg-transparent;
   }
@@ -287,4 +290,38 @@ h3 {
 
 .card {
   @apply px-4 py-2 bg-white rounded-lg shadow-xl;
+}
+
+.list-item {
+  @apply flex justify-between place-items-center px-6 py-3;
+  @apply bg-white shadow-lg first:rounded-t-lg last:rounded-b-lg transition-all;
+  border-bottom: 1px solid;
+  @apply border-slate-200 last:border-none;
+  // width: clamp(128px, 1000vw, 384px);
+  width: 100%;
+}
+
+.list {
+  @apply flex flex-col;
+  place-items: center;
+
+  .heading {
+    @apply font-bold uppercase w-full text-left pb-2;
+  }
+
+  .subtitle {
+    @apply opacity-60 w-full text-left pt-2;
+  }
+
+  .items {
+    @apply flex flex-col w-full first:rounded-t-lg last:rounded-b-lg;
+  }
+}
+
+.user-avatar {
+  width: 6rem;
+  height: 6rem;
+  clip-path: circle();
+  margin: 1rem;
+  object-fit: cover;
 }
