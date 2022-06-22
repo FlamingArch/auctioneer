@@ -1,8 +1,9 @@
 import React from "react";
 
-export const AddIcon = () => {
+export const AddIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="25"
       height="24"
       viewBox="0 0 25 24"
@@ -17,9 +18,10 @@ export const AddIcon = () => {
   );
 };
 
-export const DarkModeOffIcon = () => {
+export const DarkModeOffIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -34,9 +36,10 @@ export const DarkModeOffIcon = () => {
   );
 };
 
-export const SignOutIcon = () => {
+export const SignOutIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -51,9 +54,10 @@ export const SignOutIcon = () => {
   );
 };
 
-export const OngoingIcon = () => {
+export const OngoingIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -68,9 +72,10 @@ export const OngoingIcon = () => {
   );
 };
 
-export const CompletedIcon = () => {
+export const CompletedIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -85,9 +90,10 @@ export const CompletedIcon = () => {
   );
 };
 
-export const FavouritesIcon = () => {
+export const FavouritesIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="25"
       height="24"
       viewBox="0 0 25 24"
@@ -102,9 +108,10 @@ export const FavouritesIcon = () => {
   );
 };
 
-export const WalletIcon = () => {
+export const WalletIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="25"
       height="24"
       viewBox="0 0 25 24"
@@ -119,9 +126,10 @@ export const WalletIcon = () => {
   );
 };
 
-export const AccountIcon = () => {
+export const AccountIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="25"
       height="24"
       viewBox="0 0 25 24"
@@ -136,9 +144,10 @@ export const AccountIcon = () => {
   );
 };
 
-export const SearchIcon = () => {
+export const SearchIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -155,9 +164,10 @@ export const SearchIcon = () => {
   );
 };
 
-export const GoogleIcon = () => {
+export const GoogleIcon = ({ className }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -172,4 +182,17 @@ export const GoogleIcon = () => {
   );
 };
 
-export default GoogleIcon;
+export const MenuIcon = ({ className }) => {
+  return (
+    <svg
+      className={className}
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M3 18V16H21V18H3ZM3 13V11H21V13H3ZM3 8V6H21V8H3Z" fill="black" />
+    </svg>
+  );
+};

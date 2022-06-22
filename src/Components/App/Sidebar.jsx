@@ -4,6 +4,8 @@ import Logo from "../Views/Logo";
 import Button from "../Views/Button";
 import Sidebar from "../Views/Sidebar";
 
+import { AppContext } from "../Context";
+
 import { Tab } from "../Views/TabNavigation";
 
 import {
@@ -44,8 +46,10 @@ const tabs = [
 const AppSidebar = () => {
   const { signOut } = useContext(FirebaseContext);
 
+  const { sidebarVisibleMobile } = useContext(AppContext);
+
   return (
-    <Sidebar>
+    <Sidebar mobileVisible={sidebarVisibleMobile}>
       <Logo />
 
       <Button type="primary">

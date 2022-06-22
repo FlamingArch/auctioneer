@@ -13,21 +13,25 @@ import WalletPage from "./App/WalletPage";
 import { TabView, TabNavigationProvider } from "./Views/TabNavigation";
 
 import { FirebaseContext } from "./Firebase.jsx";
+import { AppProvider } from "./Context";
 
 function App() {
   const { user } = useContext(FirebaseContext);
+
   return user ? (
     <Page>
-      <TabNavigationProvider>
-        <AppSidebar />
-        <TabView>
-          <OngoingPage />
-          <CompletedPage />
-          <FavouritesPage />
-          <WalletPage />
-          <AccountPage />
-        </TabView>
-      </TabNavigationProvider>
+      <AppProvider>
+        <TabNavigationProvider>
+          <AppSidebar />
+          <TabView>
+            <OngoingPage />
+            <CompletedPage />
+            <FavouritesPage />
+            <WalletPage />
+            <AccountPage />
+          </TabView>
+        </TabNavigationProvider>
+      </AppProvider>
     </Page>
   ) : (
     <SignInPage />

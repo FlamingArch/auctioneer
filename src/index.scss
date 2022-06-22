@@ -27,7 +27,7 @@ code {
     monospace;
 }
 
-.window {
+.window-old {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -37,12 +37,30 @@ code {
 
 .sidebar {
   display: flex;
+  background-color: $theme-color;
   flex-direction: column;
   align-items: stretch;
   text-align: center;
   padding: 2rem;
   gap: 2rem;
   height: 100vh;
+  @apply transition-all;
+}
+
+.sidebar-mobile-hidden {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  bottom: 0;
+  z-index: 100;
+  transform: translateX(-100%);
+  box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-mobile-visible {
+  transform: translateX(0);
+  box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 100vmax rgba(0, 0, 0, 0.4);
 }
 
 .logo {
@@ -174,10 +192,10 @@ h2 {
 
   background: $object-color;
   color: rgba($color: $foreground-color, $alpha: 0.4);
-  width: clamp(128px, 40vw, 384px);
+  width: clamp(128px, 60vw, 384px);
 
   & input {
-    @apply outline-none;
+    @apply outline-none bg-transparent;
   }
 
   &:focus-within {
@@ -251,5 +269,11 @@ h2 {
     height: 80vh;
     margin-left: 0;
     margin-top: -1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-only {
+    display: none;
   }
 }
