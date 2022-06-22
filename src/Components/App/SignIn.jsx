@@ -1,19 +1,18 @@
-import React, { useContext } from "react";
-import { FirebaseContext } from "../Firebase";
 import Logo from "../Views/Logo";
 import Button from "../Views/Button";
-import Page from "../Views/Page";
+import { useContext } from "react";
+import { FirebaseContext } from "../Firebase";
 import { GoogleIcon } from "../Views/Icons";
 
 const SignInPage = () => {
-  const { signInWithGoogle } = useContext(FirebaseContext);
+  const { signInGoogle } = useContext(FirebaseContext);
 
   return (
     <div className="half-split">
       <div className="left center image-bg">
         <Logo className="text-white text-shadow-lg" />
       </div>
-      <div className="right grid align-center w-auto h-auto justify-start sm:place-content-center">
+      <div className="grid justify-start w-auto h-auto right align-center sm:place-content-center">
         <div className="flex-col gap-10 p-10 sm:p-20">
           <div className="">
             <h2>Sign in to Continue</h2>
@@ -21,7 +20,7 @@ const SignInPage = () => {
           </div>
           <div className="h-full sm:hidden"></div>
 
-          <Button type="primary" onClick={signInWithGoogle}>
+          <Button type="primary" onClick={signInGoogle}>
             <GoogleIcon />
             Sign In With Google
           </Button>

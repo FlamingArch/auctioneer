@@ -1,15 +1,8 @@
 import { createContext } from "react";
 
 import { initializeApp } from "firebase/app";
-
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import {
-  collection,
-  getFirestore,
-  orderBy,
-  query,
-  limit,
-} from "firebase/firestore";
+import { collection, getFirestore, addDoc } from "firebase/firestore";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -29,16 +22,13 @@ export const FirebaseProvider = ({ children }) => {
   const app = initializeApp(firebaseConfig);
 
   const auth = getAuth(app);
-  const firestore = getFirestore(app);
-
   const [user] = useAuthState(auth);
 
-  const itemsRef = collection(firestore, "items");
-  const q = query(itemsRef, orderBy("createdAt", "desc"), limit(10));
+  const firestore = getFirestore(app);
 
-  const [items] = useCollectionData(q, { idField: "id" });
+  const [items] = useCollectionData(collection(firestore, "items"));
 
-  function signInWithGoogle() {
+  function signInGoogle() {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider);
   }
@@ -47,17 +37,22 @@ export const FirebaseProvider = ({ children }) => {
     return auth.currentUser && auth.signOut();
   }
 
+  function addItem(item) {
+    addDoc(collection(firestore, "items"), item);
+  }
+
   return (
     <FirebaseContext.Provider
       value={{
-        app: app,
-        auth: auth,
-        config: firebaseConfig,
-        firestore: firestore,
+        firebaseValues: {
+          app: app,
+          auth: auth,
+          config: firebaseConfig,
+          firestore: firestore,
+        },
+        addItem: addItem,
         items: items,
-        itemsRef: itemsRef,
-        q: q,
-        signInWithGoogle: signInWithGoogle,
+        signInGoogle: signInGoogle,
         signOut: signOut,
         user: user,
       }}

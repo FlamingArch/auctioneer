@@ -1,17 +1,34 @@
 import { useContext } from "react";
 import { FirebaseContext } from "../Firebase";
+import { AppContext } from "../Context";
 
 import Logo from "../Views/Logo";
 import Button from "../Views/Button";
 import Sidebar from "../Views/Sidebar";
-import { AppContext } from "../Context";
 import { Tab } from "../Views/TabNavigation";
 import { AddIcon, SignOutIcon, DarkModeOffIcon } from "../Views/Icons";
 import { tabs } from "../Constants";
 
 const AddButton = () => {
+  const { addItem, user } = useContext(FirebaseContext);
+
   return (
-    <Button type="primary">
+    <Button
+      type="primary"
+      onClick={() =>
+        addItem({
+          name: "New Item",
+          description: "New Item Description",
+          price: 0,
+          image: "https://via.placeholder.com/150",
+          owner: {
+            name: user.displayName,
+            uid: user.uid,
+          },
+          createdAt: new Date(),
+        })
+      }
+    >
       <AddIcon /> New Bid
     </Button>
   );

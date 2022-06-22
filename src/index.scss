@@ -183,6 +183,13 @@ h2 {
   padding: 0;
 }
 
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
 .center {
   @apply grid place-content-center;
 }
@@ -276,4 +283,8 @@ h2 {
   .mobile-only {
     display: none;
   }
+}
+
+.card {
+  @apply px-4 py-2 bg-white rounded-lg shadow-xl;
 }
