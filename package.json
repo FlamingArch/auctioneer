@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "yarn build && firebase deploy"
+    "deploy": "yarn build && firebase deploy",
+    "start": "git fetch && yarn && yarn dev"
   },
   "dependencies": {
     "autoprefixer": "^10.4.7",
