@@ -113,6 +113,7 @@ const AddPage = ({ closeFunction }) => {
                 },
                 createdAt: new Date(),
                 active: true,
+                tags: tags,
               });
               closeFunction();
             }}

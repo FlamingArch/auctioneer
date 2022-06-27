@@ -9,7 +9,7 @@ const AccountPage = () => {
   const { user } = useContext(FirebaseContext);
 
   return (
-    <div className="content">
+    <div className="px-10 content">
       <TopBar />
       <List
         heading="Personal Details"

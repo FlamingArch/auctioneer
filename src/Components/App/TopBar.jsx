@@ -7,7 +7,7 @@ const TopBar = () => {
   const { setSidebarVisibleMobile } = useContext(AppContext);
 
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between p-10 pb-0">
       <Button
         type="icon"
         className="mobile-only"

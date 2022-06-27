@@ -1,14 +1,19 @@
-import React from "react";
-import { SearchIcon } from "../Views/Icons";
+import TopBar from "./TopBar";
+import ItemCard from "./ItemCard";
+import { useContext } from "react";
+import { FirebaseContext } from "../Firebase";
 
 const CompletedPage = () => {
+  const { items } = useContext(FirebaseContext);
+
   return (
     <div className="content">
-      <div className="center w-full">
-        <div className="input">
-          <SearchIcon />
-          <input placeholder="Search Completed" />
-        </div>
+      <TopBar />
+      <div className="grid gap-4 p-10 main-grid">
+        {items &&
+          items.map((item, i) =>
+            !item.active ? <ItemCard key={i} item={item} /> : null
+          )}
       </div>
     </div>
   );

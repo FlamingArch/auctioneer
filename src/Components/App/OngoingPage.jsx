@@ -1,4 +1,5 @@
 import TopBar from "./TopBar";
+import ItemCard from "./ItemCard";
 import { useContext } from "react";
 import { FirebaseContext } from "../Firebase";
 
@@ -8,13 +9,9 @@ const OngoingPage = () => {
   return (
     <div className="content">
       <TopBar />
-      {items &&
-        items.map((item, idx) => (
-          <div className="card" key={idx}>
-            <h3>{item.name}</h3>
-            {item.description}
-          </div>
-        ))}
+      <div className="grid gap-4 p-10 main-grid">
+        {items && items.map((item, i) => <ItemCard key={i} item={item} />)}
+      </div>
     </div>
   );
 };

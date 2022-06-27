@@ -110,6 +110,7 @@ code {
     background: $accent-color;
     box-shadow: 0px 12px 40px rgba($color: $accent-color, $alpha: 0.4);
     color: $accent-color-foreground;
+
     & path {
       fill: $accent-color-foreground !important;
     }
@@ -137,6 +138,7 @@ code {
   display: flex;
   flex-direction: row;
 }
+
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -169,7 +171,7 @@ code {
 }
 
 .content {
-  @apply p-10 flex flex-col gap-6 w-full h-full items-stretch;
+  @apply flex flex-col gap-6 w-full h-full items-stretch;
 }
 
 h1 {
@@ -204,6 +206,7 @@ h3 {
   background: $object-color;
   color: rgba($color: $foreground-color, $alpha: 0.4);
   width: clamp(128px, 60vw, 384px);
+
   & input {
     @apply outline-none bg-transparent;
   }
@@ -212,6 +215,7 @@ h3 {
     & path {
       fill: $foreground-color !important;
     }
+
     color: $foreground-color;
   }
 
@@ -273,6 +277,7 @@ h3 {
     width: 100vw;
     height: 30vh;
   }
+
   .half-split .right {
     border-radius: 1rem 1rem 0px 0px;
     width: 100vw;
@@ -290,6 +295,14 @@ h3 {
 
 .card {
   @apply px-4 py-2 bg-white rounded-lg shadow-xl;
+}
+
+.item-card {
+  @apply bg-white rounded-lg shadow-xl;
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba($color: $foreground-color, $alpha: 0.1);
 }
 
 .list-item {
@@ -355,5 +368,22 @@ path {
     max-width: 100vw;
     height: 95vh;
     margin-top: 10vh;
+  }
+}
+
+.main-grid {
+  height: 100%;
+  overflow: scroll;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media screen and (max-width: 1500px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 666px) {
+    grid-template-columns: 1fr;
   }
 }
