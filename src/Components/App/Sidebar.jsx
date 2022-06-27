@@ -10,25 +10,10 @@ import { AddIcon, SignOutIcon, DarkModeOffIcon } from "../Views/Icons";
 import { tabs } from "../Constants";
 
 const AddButton = () => {
-  const { addItem, user } = useContext(FirebaseContext);
+  const { setVisibleAddItem } = useContext(AppContext);
 
   return (
-    <Button
-      type="primary"
-      onClick={() =>
-        addItem({
-          name: "New Item",
-          description: "New Item Description",
-          price: 0,
-          image: "https://via.placeholder.com/150",
-          owner: {
-            name: user.displayName,
-            uid: user.uid,
-          },
-          createdAt: new Date(),
-        })
-      }
-    >
+    <Button type="primary" onClick={() => setVisibleAddItem(true)}>
       <AddIcon /> New Bid
     </Button>
   );

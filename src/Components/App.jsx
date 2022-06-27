@@ -13,25 +13,28 @@ import WalletPage from "./App/WalletPage";
 import { TabView, TabNavigationProvider } from "./Views/TabNavigation";
 
 import { FirebaseContext } from "./Firebase.jsx";
-import { AppProvider } from "./Context";
+import { AppContext } from "./Context";
+import AddPage from "./App/AddPage";
 
 function App() {
+  const { visibleAddItem, setVisibleAddItem } = useContext(AppContext);
   const { user } = useContext(FirebaseContext);
 
   return user ? (
     <Page>
-      <AppProvider>
-        <TabNavigationProvider>
-          <AppSidebar />
-          <TabView>
-            <OngoingPage />
-            <CompletedPage />
-            <FavouritesPage />
-            <WalletPage />
-            <AccountPage />
-          </TabView>
-        </TabNavigationProvider>
-      </AppProvider>
+      <TabNavigationProvider>
+        <AppSidebar />
+        <TabView>
+          <OngoingPage />
+          <CompletedPage />
+          <FavouritesPage />
+          <WalletPage />
+          <AccountPage />
+        </TabView>
+      </TabNavigationProvider>
+      {visibleAddItem && (
+        <AddPage closeFunction={() => setVisibleAddItem(false)} />
+      )}
     </Page>
   ) : (
     <SignInPage />

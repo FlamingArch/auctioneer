@@ -4,11 +4,14 @@ import App from "./Components/App";
 import "./index.scss";
 
 import { FirebaseProvider } from "./Components/Firebase";
+import { AppProvider } from "./Components/Context";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <FirebaseProvider>
-      <App />
-    </FirebaseProvider>
+    <AppProvider>
+      <FirebaseProvider>
+        <App />
+      </FirebaseProvider>
+    </AppProvider>
   </React.StrictMode>
 );
