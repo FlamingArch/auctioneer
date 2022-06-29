@@ -20,6 +20,8 @@ function App() {
   const { visibleAddItem, setVisibleAddItem } = useContext(AppContext);
   const { user } = useContext(FirebaseContext);
 
+  // If user is signed in, i.e. user is not null, then show the app
+  // Otherwise, show the sign in page
   return user ? (
     <Page>
       <TabNavigationProvider>
