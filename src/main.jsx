@@ -6,6 +6,7 @@ import "./index.scss";
 import { FirebaseProvider } from "./Components/Firebase";
 import { AppProvider } from "./Components/Context";
 
+// App Starts Here
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AppProvider>
