@@ -18,9 +18,9 @@ const ItemPage = ({ closeFunction }) => {
 
   return (
     <motion.div
-      animate={{
-        translateX: [width, 0],
-      }}
+      initial={{ translateX: width }}
+      animate={{ translateX: 0 }}
+      exit={{ translateX: width }}
       transition={{ duration: 0.4, stiffness: 50 }}
       className="absolute grid w-screen h-screen grid-cols-2 bg-white hide-scrollbar overflow-clip backdrop-filter backdrop-saturate-200 backdrop-blur-3xl bg-opacity-70"
     >

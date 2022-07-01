@@ -18,6 +18,8 @@ import { FirebaseContext } from "./Firebase.jsx";
 import { AppContext } from "./Context";
 import AddPage from "./App/AddPage";
 
+import { AnimatePresence } from "framer-motion";
+
 function App() {
   const {
     visibleAddItem,
@@ -41,13 +43,18 @@ function App() {
           <AccountPage />
         </TabView>
       </TabNavigationProvider>
-      {visibleAddItem && (
-        <AddPage closeFunction={() => setVisibleAddItem(false)} />
-      )}
 
-      {visibleItemPage && (
-        <ItemPage closeFunction={() => setVisibleItemPage(false)} />
-      )}
+      <AnimatePresence>
+        {visibleAddItem && (
+          <AddPage closeFunction={() => setVisibleAddItem(false)} />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {visibleItemPage && (
+          <ItemPage closeFunction={() => setVisibleItemPage(false)} />
+        )}
+      </AnimatePresence>
     </Page>
   ) : (
     <SignInPage />
