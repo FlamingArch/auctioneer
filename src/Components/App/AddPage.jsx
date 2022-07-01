@@ -174,6 +174,7 @@ const AddPage = ({ closeFunction }) => {
                 price: price,
                 tags: tags,
               });
+              closeFunction();
             }}
           >
             Add

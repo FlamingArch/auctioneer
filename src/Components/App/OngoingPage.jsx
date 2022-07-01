@@ -10,7 +10,8 @@ const OngoingPage = () => {
     <div className="content">
       <TopBar />
       <div className="grid gap-4 p-10 main-grid">
-        {items && items.map((item, i) => <ItemCard key={i} item={item} />)}
+        {items &&
+          items.map((item, i) => <ItemCard key={i} item={item} index={i} />)}
       </div>
     </div>
   );

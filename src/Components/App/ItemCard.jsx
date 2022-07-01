@@ -8,10 +8,11 @@ import { motion } from "framer-motion";
 
 import noimg from "../../Resources/no-img.png";
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item, index }) => {
   return (
     <motion.div
       animate={{ opacity: [0, 1], translateY: [25, 0] }}
+      transition={{ duration: 0.15, delay: index * 0.05 }}
       className="item-card h-min"
     >
       <img src={item.images[0] ?? noimg} className="w-full rounded-t-xl" />
