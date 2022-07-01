@@ -6,7 +6,7 @@ import Logo from "../Views/Logo";
 import Button from "../Views/Button";
 import Sidebar from "../Views/Sidebar";
 import { Tab } from "../Views/TabNavigation";
-import { AddIcon, SignOutIcon, DarkModeOffIcon } from "../Views/Icons";
+import { AddIcon, SignOutIcon, DarkModeOffIcon, MapIcon } from "../Views/Icons";
 import { tabs } from "../Constants";
 
 const AddButton = () => {
@@ -24,7 +24,7 @@ const BottomBar = () => {
   return (
     <div className="flex-row" style={{ gap: "8px" }}>
       <Button type="transparent left_align expanded">
-        <DarkModeOffIcon />
+        <MapIcon />
         India
       </Button>
       <Button type="icon">

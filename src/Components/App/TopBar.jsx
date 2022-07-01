@@ -4,7 +4,7 @@ import Button from "../Views/Button";
 import { SearchIcon, MenuIcon, AddIcon } from "../Views/Icons";
 
 const TopBar = () => {
-  const { setSidebarVisibleMobile } = useContext(AppContext);
+  const { setSidebarVisibleMobile, setVisibleAddItem } = useContext(AppContext);
 
   return (
     <div className="flex flex-row justify-between p-10 pb-0">
@@ -22,7 +22,11 @@ const TopBar = () => {
           <input placeholder="Search" />
         </div>
       </div>
-      <Button type="primary" className="mobile-only">
+      <Button
+        type="primary"
+        className="mobile-only"
+        onClick={() => setVisibleAddItem(true)}
+      >
         <AddIcon className="w-6 h-6" />
       </Button>
     </div>

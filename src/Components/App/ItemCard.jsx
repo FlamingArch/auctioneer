@@ -26,7 +26,8 @@ const ItemCard = ({ item, index }) => {
           {item.category}
         </div>
         <p>
-          {item.description.substring(0, 100) + "..." ??
+          {item.description.substring(0, 100) +
+            (item.description.length >= 100 ? "..." : "") ??
             "No Description Provided"}
         </p>
       </div>

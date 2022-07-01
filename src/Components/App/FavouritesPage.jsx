@@ -9,10 +9,8 @@ const FavouritesPage = () => {
       <TopBar />
       <div className="grid w-full h-full text-center place-content-center">
         <img src={ilfav} className="pb-12" />
-        <div className="text-3xl opacity-50">Nothing here yet</div>
-        <div className="italic opacity-50">
-          Items added to favorites will appear here .
-        </div>
+        <div className="pb-6 text-6xl font-thin">Nothing here yet</div>
+        <div className="">Items added to favorites will appear here .</div>
       </div>
     </div>
   );

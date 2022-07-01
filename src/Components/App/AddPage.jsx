@@ -5,9 +5,15 @@ import Chip from "../Views/Chip";
 import { AddIcon, CloseIcon } from "../Views/Icons";
 
 import { FirebaseContext } from "../Firebase";
-import Item from "../Models/Item";
+import { motion } from "framer-motion";
 
 const AddPage = ({ closeFunction }) => {
+  const [height, setheight] = useState(window.innerHeight);
+
+  window.onresize(() => {
+    setheight(window.innerHeight);
+  });
+
   const { addItem, user } = useContext(FirebaseContext);
 
   const [tags, setTags] = useState([]);
@@ -24,8 +30,22 @@ const AddPage = ({ closeFunction }) => {
   const [tagInput, setTagInput] = useState("");
 
   return (
-    <div className="z-10 p-8 add-page backdrop-filter backdrop-blur-2xl">
-      <div className="flex flex-col gap-4 m-8 bg-white rounded-2xl dialog">
+    <motion.div
+      initial={{ backdropFilter: "none", backgroundColor: "transparent" }}
+      animate={{
+        backdropFilter: "blur(3rem)",
+        backgroundColor: "rgba(0,0,0,0.6)",
+      }}
+      exit={{ backdropFilter: "blur(0rem)", backgroundColor: "transparent" }}
+      className="z-10 p-8 add-page"
+      onClick={closeFunction}
+    >
+      <motion.div
+        initial={{ translateY: height }}
+        animate={{ translateY: 0 }}
+        exit={{ translateY: height }}
+        className="flex flex-col gap-4 m-8 bg-white rounded-2xl dialog"
+      >
         {/* <HeaderandBasics /> */}
         <div className="flex flex-col gap-4 p-4 border-b-2">
           <div className="flex gap-4 place-items-center">
@@ -180,8 +200,8 @@ const AddPage = ({ closeFunction }) => {
             Add
           </Button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
