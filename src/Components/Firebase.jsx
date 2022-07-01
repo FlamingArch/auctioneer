@@ -1,3 +1,4 @@
+// #region Imports
 import { createContext } from "react";
 
 import { initializeApp } from "firebase/app";
@@ -7,16 +8,24 @@ import {
   getFirestore,
   addDoc,
   updateDoc,
+  doc,
+  getDoc,
 } from "firebase/firestore";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import {
+  useCollection,
+  useCollectionData,
+} from "react-firebase-hooks/firestore";
+// #endregion
 
-// Create a Context that contains all firebase related globals and functions
+// #region Create a Context that contains all firebase related globals and functions
 export const FirebaseContext = createContext();
+// #endregion
 
 // Provider for providing FirebaseContext to all components
 export const FirebaseProvider = ({ children }) => {
+  //#region
   const firebaseConfig = {
     apiKey: "AIzaSyD1aAzCS-F1iAoRMUpPEuKKiIeygQJcAaw",
     authDomain: "fa-auctioneer.firebaseapp.com",
@@ -57,32 +66,19 @@ export const FirebaseProvider = ({ children }) => {
   function addItem(item) {
     addDoc(collection(firestore, "items"), item);
   }
+  // #endregion
 
   // Mark Item as Sold
   // Only available to the seller of the item
-  function markSold(id) {
-    const item = items.find((item) => item.id === id);
-    item.active = false;
-    if (user.uid === item.owner.uid) {
-      updateDoc(collection(firestore, "items"), item);
-    } else {
-      console.log("You are not the owner of this item");
-    }
-  }
+  function markSold(id) {}
 
-  // Add Bid to item
-  // Cannot be called by the seller of the item
-  // Since a seller cannot bid on their own item
   function addBid(id, bid) {
-    const item = items.find((item) => item.id === id);
+    var item = getDoc(collection(firestore, "items"), { id: id });
     item.bids.push(bid);
-    if (user.uid !== item.owner.uid) {
-      updateDoc(collection(firestore, "items"), item);
-    } else {
-      console.log("You cannot bid on your own item");
-    }
+    updateDoc(collection(firestore, "items"), item);
   }
 
+  //#region
   // Get the Provider that passes the FirebaseContext to all child components
   return (
     <FirebaseContext.Provider
@@ -105,4 +101,5 @@ export const FirebaseProvider = ({ children }) => {
       {children}
     </FirebaseContext.Provider>
   );
+  //#endregion
 };

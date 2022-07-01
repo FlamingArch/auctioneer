@@ -8,12 +8,12 @@ import {
 
 export const tabs = [
   {
-    icon: <CompletedIcon />,
+    icon: <OngoingIcon />,
     label: "All",
   },
   {
-    icon: <OngoingIcon />,
-    label: "Ongoing",
+    icon: <CompletedIcon />,
+    label: "Completed",
   },
   {
     icon: <FavouritesIcon />,

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import Button from "../Views/Button";
 import Chip from "../Views/Chip";
@@ -24,7 +25,7 @@ const AddPage = ({ closeFunction }) => {
 
   const [images, setImages] = useState([]);
 
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
 
   const [imageInput, setImageInput] = useState("");
   const [tagInput, setTagInput] = useState("");
@@ -45,6 +46,7 @@ const AddPage = ({ closeFunction }) => {
         animate={{ translateY: 0 }}
         exit={{ translateY: height }}
         className="flex flex-col gap-4 m-8 bg-white rounded-2xl dialog"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* <HeaderandBasics /> */}
         <div className="flex flex-col gap-4 p-4 border-b-2">
@@ -79,7 +81,7 @@ const AddPage = ({ closeFunction }) => {
         {/* <Price /> */}
         <div className="flex flex-col gap-4 p-4 pt-0 border-b-2">
           <input
-            type="text"
+            type="number"
             className="custom-input"
             placeholder="Initial Price"
             value={price}
@@ -184,6 +186,7 @@ const AddPage = ({ closeFunction }) => {
                 description: description,
                 favoritedBy: [],
                 images: images,
+                id: uuidv4(),
                 name: title,
                 owner: {
                   name: user.displayName,

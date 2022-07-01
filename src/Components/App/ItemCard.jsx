@@ -22,7 +22,7 @@ const ItemCard = ({ item, index }) => {
       <img src={item.images[0] ?? noimg} className="w-full rounded-t-xl" />
       <div className="flex flex-col gap-3 p-4 border-bottom">
         <p className="text-2xl font-bold">{item.name}</p>
-        <div className="px-3 py-1 bg-blue-200 rounded-lg w-min">
+        <div className="px-3 py-1 bg-blue-200 rounded-lg w-fit">
           {item.category}
         </div>
         <p>

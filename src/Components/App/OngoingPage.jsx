@@ -4,15 +4,27 @@ import { useContext } from "react";
 import { FirebaseContext } from "../Firebase";
 
 const CompletedPage = () => {
-  const { items } = useContext(FirebaseContext);
+  const { user, items } = useContext(FirebaseContext);
 
   return (
     <div className="content">
       <TopBar />
+      <p className="font-bold">Won Auctions</p>
       <div className="grid gap-4 p-10 main-grid">
         {items &&
           items.map((item, i) =>
-            item.active ? <ItemCard key={i} item={item} index={i} /> : null
+            !item.active && item.bids[item.bids.length - 1].user == user.id ? (
+              <ItemCard key={i} item={item} index={i} />
+            ) : null
+          )}
+      </div>
+      <p className="font-bold">My Auctions</p>
+      <div className="grid gap-4 p-10 main-grid">
+        {items &&
+          items.map((item, i) =>
+            !item.active && item.owner.uid == user.id ? (
+              <ItemCard key={i} item={item} index={i} />
+            ) : null
           )}
       </div>
     </div>
