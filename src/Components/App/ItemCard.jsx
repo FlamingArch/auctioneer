@@ -3,13 +3,32 @@ import Chip from "../Views/Chip";
 import Button from "../Views/Button";
 import { FavouritesIcon, ShoppingIcon } from "../Views/Icons";
 
+import noimg from "../../Resources/no-img.png";
+
 const ItemCard = ({ item }) => {
   return (
     <div className="item-card h-min">
-      <img src={item.images[0]} className="rounded-t-xl" />
+      <img src={item.images[0] ?? noimg} className="rounded-t-xl" />
       <div className="flex flex-col gap-3 p-4 border-bottom">
         <p className="text-2xl font-bold">{item.name}</p>
-        {item.description}
+        <div className="px-3 py-1 bg-blue-200 rounded-lg w-min">
+          {item.category}
+        </div>
+        <p>{item.description ?? "No Description Provided"}</p>
+      </div>
+      <div className="flex flex-col gap-3 p-4 border-bottom">
+        <div className="flex justify-between p-2">
+          <p className="font-bold">Current Bid</p>
+          <div className="text-blue-600">
+            {item.currency} {item.bids[item.bids.length - 1].price}
+          </div>
+        </div>
+        <div className="flex justify-between p-2">
+          <p className="font-bold">Initial Price</p>
+          <div className="text-blue-600">
+            {item.currency} {item.price}
+          </div>
+        </div>
       </div>
       <div className="p-4 border-bottom">
         Tags

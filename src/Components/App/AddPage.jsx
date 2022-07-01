@@ -5,6 +5,7 @@ import Chip from "../Views/Chip";
 import { AddIcon, CloseIcon } from "../Views/Icons";
 
 import { FirebaseContext } from "../Firebase";
+import Item from "../Models/Item";
 
 const AddPage = ({ closeFunction }) => {
   const { addItem, user } = useContext(FirebaseContext);
@@ -14,12 +15,18 @@ const AddPage = ({ closeFunction }) => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+
+  const [images, setImages] = useState([]);
+
   const [price, setPrice] = useState("");
+
+  const [imageInput, setImageInput] = useState("");
   const [tagInput, setTagInput] = useState("");
 
   return (
     <div className="z-10 p-8 add-page backdrop-filter backdrop-blur-2xl">
       <div className="flex flex-col gap-4 m-8 bg-white rounded-2xl dialog">
+        {/* <HeaderandBasics /> */}
         <div className="flex flex-col gap-4 p-4 border-b-2">
           <div className="flex gap-4 place-items-center">
             <Button type="icon" onClick={closeFunction}>
@@ -49,6 +56,7 @@ const AddPage = ({ closeFunction }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
+        {/* <Price /> */}
         <div className="flex flex-col gap-4 p-4 pt-0 border-b-2">
           <input
             type="text"
@@ -58,6 +66,41 @@ const AddPage = ({ closeFunction }) => {
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
+        {/* <Images /> */}
+        <div className="flex flex-col gap-4 p-4 border-b-2">
+          <div className="transition-all bg-white shadow-none outline-none rounded-xl hover:shadow-xl focus-within:shadow-lg hover:z-10">
+            <div className="flex">
+              <input
+                type="text"
+                className="shadow-none outline-none custom-input expanded bg-none hover:shadow-none focus-within:shadow-none"
+                placeholder="Images"
+                value={imageInput}
+                onChange={(e) => {
+                  setImageInput(e.target.value);
+                }}
+              />
+              <Button
+                type="icon"
+                onClick={() => {
+                  setImages([...images, imageInput]);
+                  setImageInput("");
+                }}
+                disabled={!imageInput}
+              >
+                <AddIcon className="icon-black" />
+              </Button>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 p-4">
+            {images.map((tag) => (
+              <img className="image-tile" src={tag} />
+            ))}
+            <div className="italic text-gray-300">
+              {images.length == 0 ? "Enter Images Above" : null}
+            </div>
+          </div>
+        </div>
+        {/* <Tags /> */}
         <div className="flex flex-col gap-4 p-4 border-b-2">
           <div className="transition-all bg-white shadow-none outline-none rounded-xl hover:shadow-xl focus-within:shadow-lg hover:z-10">
             <div className="flex">
@@ -87,10 +130,11 @@ const AddPage = ({ closeFunction }) => {
               <Chip>{tag}</Chip>
             ))}
             <div className="italic text-gray-300">
-              {tags.length == 0 ? "Enter Tags Above" : null}
+              {tags.length == 0 ? "Enter Images Above" : null}
             </div>
           </div>
         </div>
+        {/* <Submit /> */}
         <div className="flex flex-col gap-4 p-4 pt-0">
           <Button
             type="primary"
@@ -103,19 +147,33 @@ const AddPage = ({ closeFunction }) => {
             }
             onClick={() => {
               addItem({
-                name: title,
+                active: true,
+                bids: [
+                  {
+                    price: price,
+                    user: user.uid,
+                    userName: user.displayName,
+                    userBio: "Just Here to sell some stuff",
+                    userProfilePicture: user.photoURL,
+                    createdAt: Date.now(),
+                  },
+                ],
+                category: category,
+                createdAt: Date.now(),
+                currency: "USD",
                 description: description,
-                price: price,
-                image: "https://via.placeholder.com/150",
+                favoritedBy: [],
+                images: images,
+                name: title,
                 owner: {
                   name: user.displayName,
+                  bio: "Just Here to sell some stuff",
+                  profile_picture: user.photoURL,
                   uid: user.uid,
                 },
-                createdAt: new Date(),
-                active: true,
+                price: price,
                 tags: tags,
               });
-              closeFunction();
             }}
           >
             Add

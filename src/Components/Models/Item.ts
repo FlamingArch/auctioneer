@@ -7,7 +7,7 @@ export default class Item {
   // Marks whether the item is still being auctioned, or has been sold.
   // false means the item has been sold.
   // true means the item is still being auctioned.
-  active = false;
+  active = true;
 
   // Contains all the bids made on the item.
   // Each bid is represented by an object with the following format:
@@ -40,6 +40,7 @@ export default class Item {
   // This is the user who created the item.
   // This is a user object with the following format:
   //   name: string, The name of the user.
+  //   profile_picture: string, The bio of the user.
   //   bio: string, The bio of the user. Optional.
   //   uid: string, The User ID of the user.
   owner: Owner;
@@ -53,6 +54,7 @@ export default class Item {
   constructor(
     user: any,
     name: string,
+    category: string,
     description: string,
     images: string[],
     initial_price: number,
@@ -60,16 +62,20 @@ export default class Item {
   ) {
     this.bids = [
       {
-        user: user.id,
         price: initial_price,
+        user: user.id,
+        userName: user.displayName,
+        userBio: "Just Here to sell some stuff",
         createdAt: new Date(),
       },
     ];
+    this.category = category;
     this.description = description;
     this.images = images;
     this.name = name;
     this.owner = {
       name: user.name,
+      profile_picture: user.profile_picture,
       bio: "Just Here to Sell Some Stuff",
       uid: user.id,
     };
@@ -82,12 +88,15 @@ export default class Item {
 interface Bid {
   price: number;
   user: string;
+  userName: string;
+  userBio: string;
   createdAt: Date;
 }
 
 // Interface for the owner of an item.
 interface Owner {
   name: string;
-  bio?: string;
+  profile_picture: string;
+  bio: string;
   uid: string;
 }
