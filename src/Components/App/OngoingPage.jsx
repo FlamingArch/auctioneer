@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard";
 import { useContext } from "react";
 import { FirebaseContext } from "../Firebase";
 
-const OngoingPage = () => {
+const CompletedPage = () => {
   const { items } = useContext(FirebaseContext);
 
   return (
@@ -11,10 +11,12 @@ const OngoingPage = () => {
       <TopBar />
       <div className="grid gap-4 p-10 main-grid">
         {items &&
-          items.map((item, i) => <ItemCard key={i} item={item} index={i} />)}
+          items.map((item, i) =>
+            item.active ? <ItemCard key={i} item={item} index={i} /> : null
+          )}
       </div>
     </div>
   );
 };
 
-export default OngoingPage;
+export default CompletedPage;

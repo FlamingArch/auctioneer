@@ -1,13 +1,17 @@
 import React from "react";
 import { SearchIcon } from "../Views/Icons";
+import TopBar from "./TopBar";
+import ilfav from "../../Resources/illutration-favorites.svg";
 
 const FavouritesPage = () => {
   return (
     <div className="content">
-      <div className="center w-full">
-        <div className="input">
-          <SearchIcon />
-          <input placeholder="Search Favourites" />
+      <TopBar />
+      <div className="grid w-full h-full text-center place-content-center">
+        <img src={ilfav} className="pb-12" />
+        <div className="text-3xl opacity-50">Nothing here yet</div>
+        <div className="italic opacity-50">
+          Items added to favorites will appear here .
         </div>
       </div>
     </div>

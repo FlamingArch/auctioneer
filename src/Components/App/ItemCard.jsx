@@ -1,4 +1,3 @@
-import React from "react";
 import Chip from "../Views/Chip";
 import Button from "../Views/Button";
 import { FavouritesIcon, ShoppingIcon } from "../Views/Icons";
@@ -7,13 +6,18 @@ import _ from "lodash";
 import { motion } from "framer-motion";
 
 import noimg from "../../Resources/no-img.png";
+import { AppContext } from "../Context";
+import { useContext } from "react";
 
 const ItemCard = ({ item, index }) => {
+  const { showItemPage } = useContext(AppContext);
+
   return (
     <motion.div
       animate={{ opacity: [0, 1], translateY: [25, 0] }}
       transition={{ duration: 0.15, delay: index * 0.05 }}
-      className="item-card h-min"
+      className="cursor-pointer item-card h-min"
+      onClick={() => showItemPage(item)}
     >
       <img src={item.images[0] ?? noimg} className="w-full rounded-t-xl" />
       <div className="flex flex-col gap-3 p-4 border-bottom">

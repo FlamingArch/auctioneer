@@ -395,3 +395,18 @@ path {
   border-radius: 12px;
   box-shadow: 0px 12px 40px rgba($color: black, $alpha: 0.2);
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.full-img-fit {
+  object-fit: cover;
+  object-position: center;
+}
