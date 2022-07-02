@@ -9,23 +9,19 @@ const CompletedPage = () => {
   return (
     <div className="content">
       <TopBar />
-      <p className="font-bold">Won Auctions</p>
-      <div className="grid gap-4 p-10 main-grid">
-        {items &&
-          items.map((item, i) =>
-            !item.active && item.bids[item.bids.length - 1].user == user.id ? (
-              <ItemCard key={i} item={item} index={i} />
-            ) : null
+      <div className="flex flex-col h-screen overflow-scroll">
+        <p className="font-bold">Won Auctions</p>
+        <div className="grid h-screen gap-4 p-10 overflow-scroll main-grid">
+          {items && items.length !== 0 ? (
+            items.map((item, i) =>
+              item.sold && item.sold === user.uid ? (
+                <ItemCard key={i} item={item} index={i} />
+              ) : null
+            )
+          ) : (
+            <p>No Auctions Won Yet</p>
           )}
-      </div>
-      <p className="font-bold">My Auctions</p>
-      <div className="grid gap-4 p-10 main-grid">
-        {items &&
-          items.map((item, i) =>
-            !item.active && item.owner.uid == user.id ? (
-              <ItemCard key={i} item={item} index={i} />
-            ) : null
-          )}
+        </div>
       </div>
     </div>
   );

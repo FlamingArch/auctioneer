@@ -10,6 +10,9 @@ import {
   updateDoc,
   doc,
   getDoc,
+  query,
+  where,
+  getDocs,
 } from "firebase/firestore";
 
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -17,6 +20,7 @@ import {
   useCollection,
   useCollectionData,
 } from "react-firebase-hooks/firestore";
+import { async } from "@firebase/util";
 // #endregion
 
 // #region Create a Context that contains all firebase related globals and functions
@@ -70,13 +74,38 @@ export const FirebaseProvider = ({ children }) => {
 
   // Mark Item as Sold
   // Only available to the seller of the item
-  function markSold(id) {}
+  const markSold = async (id, user) => {
+    const itemRef = query(
+      collection(firestore, "items"),
+      where("id", "==", id)
+    );
 
-  function addBid(id, bid) {
-    var item = getDoc(collection(firestore, "items"), { id: id });
-    item.bids.push(bid);
-    updateDoc(collection(firestore, "items"), item);
-  }
+    const findItems = await getDocs(itemRef);
+
+    findItems.forEach(async (item) => {
+      const getItem = doc(firestore, `items`, item.id);
+      await updateDoc(getItem, {
+        active: false,
+        sold: user,
+      });
+    });
+  };
+
+  const addBid = async (id, bids) => {
+    const itemRef = query(
+      collection(firestore, "items"),
+      where("id", "==", id)
+    );
+
+    const findItems = await getDocs(itemRef);
+
+    findItems.forEach(async (item) => {
+      const getItem = doc(firestore, `items`, item.id);
+      await updateDoc(getItem, {
+        bids: bids,
+      });
+    });
+  };
 
   //#region
   // Get the Provider that passes the FirebaseContext to all child components

@@ -147,7 +147,9 @@ const ItemPage = ({ closeFunction }) => {
               placeholder={`Enter amount greater than ${
                 item.bids[item.bids.length - 1].price
               }`}
+              value={price}
               onChange={(e) => {
+                setPrice(e.target.value);
                 if (e.target.value > item.bids[item.bids.length - 1].price) {
                   setBidDisabled(false);
                 } else {
@@ -163,7 +165,8 @@ const ItemPage = ({ closeFunction }) => {
                 type="primary"
                 disabled={!item.active}
                 onClick={() => {
-                  markSold(item.id);
+                  markSold(item.id, item.bids[item.bids.length - 1].user);
+                  closeFunction();
                 }}
               >
                 <ShoppingIcon />
@@ -175,14 +178,17 @@ const ItemPage = ({ closeFunction }) => {
                 type="primary"
                 disabled={!item.active || bidDisabled}
                 onClick={() => {
-                  addBid(item.id, {
-                    createdAt: Date.now(),
-                    price: price,
-                    user: user.uid,
-                    userBio: "Just Here to sell some stuff",
-                    userName: user.displayName,
-                    userProfilePicture: user.photoURL,
-                  });
+                  addBid(item.id, [
+                    ...item.bids,
+                    {
+                      createdAt: Date.now(),
+                      price: price,
+                      user: user.uid,
+                      userBio: "Just Here to sell some stuff",
+                      userName: user.displayName,
+                      userProfilePicture: user.photoURL,
+                    },
+                  ]);
                 }}
               >
                 <ShoppingIcon />
@@ -237,28 +243,31 @@ const ItemPage = ({ closeFunction }) => {
             stiffness: 50,
             ease: "easeIn",
           }}
-          className="flex flex-col p-6 border-bottom"
+          className="flex flex-col gap-4 p-6 border-bottom"
         >
-          <div className="pb-6 font-bold">Bids Already Made</div>
+          <div className="font-bold ">Bids Already Made</div>
           {item.bids &&
-            item.bids.map((bid, i) => (
-              <div key={i} className="flex justify-between w-full">
-                <div className="flex gap-3">
-                  <img
-                    src={bid.userProfilePicture}
-                    alt=""
-                    className="w-12 h-12 rounded-full"
-                  />
-                  <div className="flex flex-col">
-                    <p className="font-bold">{bid.userName}</p>
-                    <p className="">{bid.userBio}</p>
+            item.bids
+              .sort((a, b) => a.price < b.price)
+              .map((bid, i) => (
+                <div key={i} className="flex justify-between w-full">
+                  <div className="flex gap-3">
+                    <img
+                      src={bid.userProfilePicture}
+                      alt=""
+                      className="w-12 h-12 rounded-full"
+                    />
+                    <div className="flex flex-col">
+                      <p className="font-bold">{bid.userName}</p>
+                      <p className="">{bid.userBio}</p>
+                    </div>
+                  </div>
+                  <div className="font-bold">
+                    {item.sold && item.sold == bid.user ? "(Sold)" : ""}{" "}
+                    {item.currency} {bid.price}
                   </div>
                 </div>
-                <div className="font-bold">
-                  {i === 0 ? " (Initial)" : ""} {item.currency} {bid.price}
-                </div>
-              </div>
-            ))}
+              ))}
         </motion.div>
         {/* #endregion */}
       </div>

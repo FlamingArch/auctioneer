@@ -1,7 +1,11 @@
 import React from "react";
 
-const ListItem = ({ children }) => {
-  return <div className="list-item">{children}</div>;
+const ListItem = ({ children, onClick }) => {
+  return (
+    <div className="list-item" onClick={onClick}>
+      {children}
+    </div>
+  );
 };
 
 export default ListItem;
