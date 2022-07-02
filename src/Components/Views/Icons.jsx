@@ -248,7 +248,7 @@ export const MapIcon = ({ className }) => {
   );
 };
 
-const ForwardIcon = ({ className }) => {
+export const ForwardIcon = ({ className }) => {
   return (
     <svg
       className={className}
