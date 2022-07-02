@@ -39,7 +39,6 @@ const AddPage = ({ closeFunction }) => {
       }}
       exit={{ backdropFilter: "blur(0rem)", backgroundColor: "transparent" }}
       className="z-10 p-8 add-page"
-      onClick={closeFunction}
     >
       <motion.div
         initial={{ translateY: height }}
