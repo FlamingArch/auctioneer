@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { FirebaseContext } from "../Firebase";
 import { AppContext } from "../Context";
 import List from "../Views/List";
-import { ForewardIcon } from "../Views/Icons";
+import { ForwardIcon } from "../Views/Icons";
 
 import noimg from "../../Resources/no-img.png";
 
@@ -65,7 +65,7 @@ const AccountPage = () => {
                   </p>
                 </div>
               </div>
-              <ForewardIcon />
+              <ForwardIcon />
             </ListItem>
           ) : null
         )}

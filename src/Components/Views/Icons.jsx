@@ -265,5 +265,3 @@ export const ForwardIcon = ({ className }) => {
     </svg>
   );
 };
-
-export default ForwardIcon;
