@@ -5,7 +5,7 @@ import Button from "../../views/Button";
 import Chip from "../../views/Chip";
 import { AddIcon, CloseIcon } from "../../views/Icons";
 
-import { FirebaseContext } from "../Firebase";
+import { FirebaseContext } from "../../Firebase";
 import { motion } from "framer-motion";
 
 const AddPage = ({ closeFunction }) => {

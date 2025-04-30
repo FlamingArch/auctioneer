@@ -1,8 +1,8 @@
 //#region Imports
 import { useContext, useState } from "react";
 import { motion } from "framer-motion";
-import { AppContext } from "../Context";
-import { FirebaseContext } from "../Firebase";
+import { AppContext } from "../../Context";
+import { FirebaseContext } from "../../Firebase";
 import { v4 as uuidv4 } from "uuid";
 
 import Button from "../../views/Button";

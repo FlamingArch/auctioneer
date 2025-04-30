@@ -1,7 +1,7 @@
 import TopBar from "./TopBar";
 import ItemCard from "./ItemCard";
 import { useContext } from "react";
-import { FirebaseContext } from "../Firebase";
+import { FirebaseContext } from "../../Firebase";
 
 const CompletedPage = () => {
   const { user, items } = useContext(FirebaseContext);

@@ -2,8 +2,8 @@ import React from "react";
 import TopBar from "./TopBar";
 import ListItem from "../../views/ListItem";
 import { useContext } from "react";
-import { FirebaseContext } from "../Firebase";
-import { AppContext } from "../Context";
+import { FirebaseContext } from "../../Firebase";
+import { AppContext } from "../../Context";
 import List from "../../views/List";
 import { ForwardIcon } from "../../views/Icons";
 

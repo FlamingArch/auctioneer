@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./Components/App";
+import App from "./app";
 import "./index.scss";
 
-import { FirebaseProvider } from "./Components/Firebase";
-import { AppProvider } from "./Components/Context";
+import { FirebaseProvider } from "./Firebase";
+import { AppProvider } from "./Context";
 
 // App Starts Here
 ReactDOM.createRoot(document.getElementById("root")).render(

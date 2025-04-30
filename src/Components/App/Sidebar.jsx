@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { FirebaseContext } from "../Firebase";
-import { AppContext } from "../Context";
+import { FirebaseContext } from "../../Firebase";
+import { AppContext } from "../../Context";
 
 import Logo from "../../views/Logo";
 import Button from "../../views/Button";
 import Sidebar from "../../views/Sidebar";
 import { Tab } from "../../views/TabNavigation";
 import { AddIcon, SignOutIcon, DarkModeOffIcon, MapIcon } from "../../views/Icons";
-import { tabs } from "../Constants";
+import { tabs } from "../../Constants";
 
 const AddButton = () => {
   const { setVisibleAddItem } = useContext(AppContext);

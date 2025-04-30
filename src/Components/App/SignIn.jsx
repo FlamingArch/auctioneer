@@ -1,7 +1,7 @@
 import Logo from "../../views/Logo";
 import Button from "../../views/Button";
 import { useContext } from "react";
-import { FirebaseContext } from "../Firebase";
+import { FirebaseContext } from "../../Firebase";
 import { GoogleIcon } from "../../views/Icons";
 
 const SignInPage = () => {

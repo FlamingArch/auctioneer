@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "../Context";
+import { AppContext } from "../../Context";
 import Button from "../../views/Button";
 import { SearchIcon, MenuIcon, AddIcon } from "../../views/Icons";
 

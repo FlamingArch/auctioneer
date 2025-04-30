@@ -6,7 +6,7 @@ import _ from "lodash";
 import { motion } from "framer-motion";
 
 import noimg from "../../assets/no-img.png";
-import { AppContext } from "../Context";
+import { AppContext } from "../../Context";
 import { useContext } from "react";
 
 const ItemCard = ({ item, index }) => {
