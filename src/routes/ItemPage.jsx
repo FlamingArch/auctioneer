@@ -1,14 +1,14 @@
 //#region Imports
 import { useContext, useState } from "react";
 import { motion } from "framer-motion";
-import { AppContext } from "../../Context";
-import { FirebaseContext } from "../../Firebase";
+import { AppContext } from "../Context";
+import { FirebaseContext } from "../Firebase";
 import { v4 as uuidv4 } from "uuid";
 
-import Button from "../../views/Button";
-import Chip from "../../views/Chip";
+import Button from "../views/Button";
+import Chip from "../views/Chip";
 
-import { CloseIcon, ShoppingIcon } from "../../views/Icons";
+import { CloseIcon, ShoppingIcon } from "../views/Icons";
 //#endregion
 
 const ItemPage = ({ closeFunction }) => {

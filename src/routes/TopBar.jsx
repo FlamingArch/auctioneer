@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../Context";
-import Button from "../../views/Button";
-import { SearchIcon, MenuIcon, AddIcon } from "../../views/Icons";
+import { AppContext } from "../Context";
+import Button from "../views/Button";
+import { SearchIcon, MenuIcon, AddIcon } from "../views/Icons";
 
 const TopBar = () => {
   const { setSidebarVisibleMobile, setVisibleAddItem } = useContext(AppContext);
