@@ -1,11 +1,11 @@
-import Chip from "../Views/Chip";
-import Button from "../Views/Button";
-import { FavouritesIcon, ShoppingIcon } from "../Views/Icons";
+import Chip from "../views/Chip";
+import Button from "../views/Button";
+import { FavouritesIcon, ShoppingIcon } from "../views/Icons";
 
 import _ from "lodash";
 import { motion } from "framer-motion";
 
-import noimg from "../../Resources/no-img.png";
+import noimg from "../assets/no-img.png";
 import { AppContext } from "../Context";
 import { useContext } from "react";
 
@@ -27,7 +27,7 @@ const ItemCard = ({ item, index }) => {
         </div>
         <p>
           {item.description.substring(0, 100) +
-            (item.description.length >= 100 ? "..." : "") ??
+            (item.description.length >= 100 ? "../.." : "") ??
             "No Description Provided"}
         </p>
       </div>

@@ -4,7 +4,7 @@ import {
   FavouritesIcon,
   WalletIcon,
   AccountIcon,
-} from "./Views/Icons";
+} from "./views/Icons";
 
 export const tabs = [
   {

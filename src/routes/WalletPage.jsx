@@ -1,6 +1,6 @@
 import React from "react";
-import List from "../Views/List";
-import ListItem from "../Views/ListItem";
+import List from "../views/List";
+import ListItem from "../views/ListItem";
 import TopBar from "./TopBar";
 
 const WalletPage = () => {

@@ -1,7 +1,7 @@
 import React from "react";
-import { SearchIcon } from "../Views/Icons";
+import { SearchIcon } from "../views/Icons";
 import TopBar from "./TopBar";
-import ilfav from "../../Resources/illutration-favorites.svg";
+import ilfav from "../assets/illutration-favorites.svg";
 
 const FavouritesPage = () => {
   return (

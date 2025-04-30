@@ -1,13 +1,13 @@
 import React from "react";
 import TopBar from "./TopBar";
-import ListItem from "../Views/ListItem";
+import ListItem from "../views/ListItem";
 import { useContext } from "react";
 import { FirebaseContext } from "../Firebase";
 import { AppContext } from "../Context";
-import List from "../Views/List";
-import { ForwardIcon } from "../Views/Icons";
+import List from "../views/List";
+import { ForwardIcon } from "../views/Icons";
 
-import noimg from "../../Resources/no-img.png";
+import noimg from "../assets/no-img.png";
 
 const AccountPage = () => {
   const { showItemPage } = useContext(AppContext);

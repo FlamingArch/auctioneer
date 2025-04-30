@@ -1,7 +1,7 @@
 // Contains implementation of Item class.
 // This is how an item is represented in the database.
 // The App expects the item to be in this format.
-// Parts of App my bread or have unintented functionality
+// Parts of App my break or have unintented functionality
 // if item doesnot have following format.
 export default class Item {
   // Marks whether the item is still being auctioned, or has been sold.
