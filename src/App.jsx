@@ -1,22 +1,22 @@
 import { useContext } from "react";
 
-import SignInPage from "./App/SignIn";
-import Page from "../views/Page";
-import AppSidebar from "./App/Sidebar";
+import SignInPage from "./routes/SignIn";
+import Page from "./views/Page.jsx";
+import AppSidebar from "./routes/Sidebar";
 
-import AllPage from "./App/AllPage";
-import OngoingPage from "./App/OngoingPage";
-import FavouritesPage from "./App/FavouritesPage";
-import AccountPage from "./App/AccountPage";
-import WalletPage from "./App/WalletPage";
+import AllPage from "./routes/AllPage";
+import OngoingPage from "./routes/OngoingPage";
+import FavouritesPage from "./routes/FavouritesPage";
+import AccountPage from "./routes/AccountPage";
+import WalletPage from "./routes/WalletPage";
 
-import { TabView, TabNavigationProvider } from "../views/TabNavigation";
+import { TabView, TabNavigationProvider } from "./views/TabNavigation.jsx";
 
-import ItemPage from "./App/ItemPage";
+import ItemPage from "./routes/ItemPage";
 
-import { FirebaseContext } from "./Firebase.jsx";
-import { AppContext } from "./Context";
-import AddPage from "./App/AddPage";
+import { FirebaseContext } from "./Components/Firebase.jsx";
+import { AppContext } from "./Components/Context.jsx";
+import AddPage from "./routes/AddPage";
 
 import { AnimatePresence } from "framer-motion";
 

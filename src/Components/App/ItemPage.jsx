@@ -5,10 +5,10 @@ import { AppContext } from "../Context";
 import { FirebaseContext } from "../Firebase";
 import { v4 as uuidv4 } from "uuid";
 
-import Button from "../Views/Button";
-import Chip from "../Views/Chip";
+import Button from "../../views/Button";
+import Chip from "../../views/Chip";
 
-import { CloseIcon, ShoppingIcon } from "../Views/Icons";
+import { CloseIcon, ShoppingIcon } from "../../views/Icons";
 //#endregion
 
 const ItemPage = ({ closeFunction }) => {

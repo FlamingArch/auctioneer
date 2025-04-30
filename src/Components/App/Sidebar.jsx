@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { FirebaseContext } from "../Firebase";
 import { AppContext } from "../Context";
 
-import Logo from "../Views/Logo";
-import Button from "../Views/Button";
-import Sidebar from "../Views/Sidebar";
-import { Tab } from "../Views/TabNavigation";
-import { AddIcon, SignOutIcon, DarkModeOffIcon, MapIcon } from "../Views/Icons";
+import Logo from "../../views/Logo";
+import Button from "../../views/Button";
+import Sidebar from "../../views/Sidebar";
+import { Tab } from "../../views/TabNavigation";
+import { AddIcon, SignOutIcon, DarkModeOffIcon, MapIcon } from "../../views/Icons";
 import { tabs } from "../Constants";
 
 const AddButton = () => {
